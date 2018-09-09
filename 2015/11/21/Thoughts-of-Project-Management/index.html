@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>技术项目管理随想 | Wenzhong&#39;s Playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="最近看了一些技术项目排雷书，分几个方面总结了一下雷区，以及可以做得更好的地方。 工程质量 &amp;amp; 复杂度控制 预计变化的影响：需求会变化，系统扩展性需要加强，人员在流动。架构师的职责是管理变化，更确切的说，确保变化的影响是受控的。所以以下的技巧是必须的： 只进行小型、增量的改动 写可重复运行的测试用例，经常执行 让编写和运行测试用例变得容易 追踪依赖事项的变化 自动化重复事项   舍弃自作聪">
+<meta name="keywords" content="Book Review, Thoughts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术项目管理随想">
+<meta property="og:url" content="http://fwz.github.io/2015/11/21/Thoughts-of-Project-Management/index.html">
+<meta property="og:site_name" content="Wenzhong&#39;s Playground">
+<meta property="og:description" content="最近看了一些技术项目排雷书，分几个方面总结了一下雷区，以及可以做得更好的地方。 工程质量 &amp;amp; 复杂度控制 预计变化的影响：需求会变化，系统扩展性需要加强，人员在流动。架构师的职责是管理变化，更确切的说，确保变化的影响是受控的。所以以下的技巧是必须的： 只进行小型、增量的改动 写可重复运行的测试用例，经常执行 让编写和运行测试用例变得容易 追踪依赖事项的变化 自动化重复事项   舍弃自作聪">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://7ktqal.com1.z0.glb.clouddn.com/img%2Fblog%2Fproject-management.jpg">
+<meta property="og:updated_time" content="2016-09-05T03:39:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="技术项目管理随想">
+<meta name="twitter:description" content="最近看了一些技术项目排雷书，分几个方面总结了一下雷区，以及可以做得更好的地方。 工程质量 &amp;amp; 复杂度控制 预计变化的影响：需求会变化，系统扩展性需要加强，人员在流动。架构师的职责是管理变化，更确切的说，确保变化的影响是受控的。所以以下的技巧是必须的： 只进行小型、增量的改动 写可重复运行的测试用例，经常执行 让编写和运行测试用例变得容易 追踪依赖事项的变化 自动化重复事项   舍弃自作聪">
+<meta name="twitter:image" content="http://7ktqal.com1.z0.glb.clouddn.com/img%2Fblog%2Fproject-management.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wenzhong&#39;s Playground</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/about-me">About Wenzhong</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/wenzhong_avatar.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/about-me">About Wenzhong</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/wenzhong_avatar.png" />
+            <h2 id="name">Wenzhong</h2>
+            <h3 id="title">Coder &amp; Player</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/fwz">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                34
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                38
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/fwz" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/hectorinsane" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Thoughts-of-Project-Management" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            技术项目管理随想
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2015/11/21/Thoughts-of-Project-Management/">
+            <time datetime="2015-11-21T09:08:35.000Z" itemprop="datePublished">2015-11-21</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://7ktqal.com1.z0.glb.clouddn.com/img%2Fblog%2Fproject-management.jpg" alt="Project management"></p>
+<p>最近看了一些技术项目排雷书，分几个方面总结了一下雷区，以及可以做得更好的地方。</p>
+<h2 id="工程质量-amp-复杂度控制"><a href="#工程质量-amp-复杂度控制" class="headerlink" title="工程质量 &amp; 复杂度控制"></a>工程质量 &amp; 复杂度控制</h2><ul>
+<li>预计变化的影响：需求会变化，系统扩展性需要加强，人员在流动。架构师的职责是管理变化，更确切的说，确保变化的影响是受控的。所以以下的技巧是必须的：<ul>
+<li>只进行小型、增量的改动</li>
+<li>写可重复运行的测试用例，经常执行</li>
+<li>让编写和运行测试用例变得容易</li>
+<li>追踪依赖事项的变化</li>
+<li>自动化重复事项</li>
+</ul>
+</li>
+<li>舍弃自作聪明的设计。这样的设计让系统变得脆弱和难以维护。越老实的系统越容易扩展。</li>
+<li>关注性能。假如不从一开始就严格控制性能，「暂时不用关注性能」的想法就会在团队中蔓延。很快就变成「不得不马上解决线上的性能问题」。尽早在团队里面传授性能测试工具的用法是很有效的方法，真没那个时间的话，对依赖SQL的团队，普及一下explain的使用和结果解析都会有很大的提高。</li>
+<li>要评估系统的扩展性，那就尝试向多个方向增长业务规模，看看哪个方面会先支撑不住，那个就是你下个要关注的方向。</li>
+<li>重视界面设计。对于产品的用户来说，用户交互界面才是系统本身。系统的响应速度提高50%当然是好事，但废老大力气的优化很容易就被糟糕的交互带来的坏心情影响。<a id="more"></a></li>
+<li>不要迷信设计模式，不要为了使用设计模式而使用。</li>
+<li>所谓复用，不仅仅与架构有关，还和人有关。如果没有人知道还有个框架，没有人知道怎么复用，再厉害的框架也是白扯。所以文档是很重要的。</li>
+<li>构建系统并不是一场选美竞赛，不要为了追求完美而主动寻找错误。</li>
+<li>追踪每周有多少时间用于解决线上问题。</li>
+<li>一朵起错名的玫瑰会长成卷心菜（我真喜欢外国人的比喻啊）。做某个事情之前，假如连这个事情应该怎么称呼都没想好，那就别开始做了，想清楚再做。</li>
+<li>如果解决的问题稳定，那么很容易能得到一个可靠的解决方案。但无论开工之前想得多完善，最后的产出总不会是一模一样的。</li>
+<li>开发过程中的“新想法”要要慎重考虑。因为一个技术很酷而使用，因为框架升级而要系统跟着升级，因为做A而要重构B，因为有一个关于架构的想法而进行讨论，都隐藏着危险的信号。这些事情会带来系统的变化，使项目变得逐渐不可控。</li>
+<li>选择当下的最佳解决方案去解决问题。假如想太多关于未来的问题，可能既无法解决未来的问题，而且连当下的问题都不能好好解决。</li>
+<li>量化你的数据。不断加入统计或埋点数据。</li>
+<li>不走正路的Bugfix就像借贷，是要还利息的。利息主要表现为：系统变得更难以扩展。为了降低影响，合理的做法是，先上bugfix，并投入时间在下次发布之前做一个合理的bugfix。</li>
+</ul>
+<h2 id="团队建设"><a href="#团队建设" class="headerlink" title="团队建设"></a>团队建设</h2><ul>
+<li>提高团队战斗力（确保他们已有对应的工具，CI，code formatter，性能测试工具；确保有对应的技能，每周五对需要用到的技能进行培训，在书本和讨论上投入；引入流程的时候，确保是用来解决问题，而非引入新问题）</li>
+<li>寻找并留住有热情的工程师</li>
+<li>自己写JD。</li>
+<li>技术人员的顾客并不是真正的顾客（是产品人员），我们顾客的顾客才是真正的顾客。因此，需要考虑真正顾客的需求。例如产品为了赶工期要求暂不对数据进行加密，技术人员应该指出风险而不是默默接受，站在真正顾客的角度考虑问题，而不是提出任务的人。</li>
+<li>工程师和机器打交道，架构师和人打交道，因此要学会Sell自己的观点。如何推销自己的观点：<ul>
+<li>建立起Value proposition</li>
+<li>用数据说话，尽早建立起监控进行反馈</li>
+<li>找一个合适的时间提出方案（例如前一个框架被验证是失败的时候）</li>
+</ul>
+</li>
+</ul>
+<h2 id="沟通"><a href="#沟通" class="headerlink" title="沟通"></a>沟通</h2><ul>
+<li>在讨价还价的过程中先索取得比需要的更多（以在协商中留有退路）</li>
+<li>挑战并验证假设。是否用户真的不能忍？是否这个库就是比那个库糟糕？</li>
+<li>做一个好合作、会说话、但并非好说话的工程师。</li>
+<li>许下承诺和践行承诺才能得到尊重。这就要求我们考虑预算和时间的限制，尽我们所能让系统变得高效。</li>
+<li>不断地问需求的提出方，需求能不能加上「在任何场合下，总会有……」的概括。由于需求方会比较谨慎地回答这种问题，因此他会不断地修饰和思考需求。反复地问，这样我们就会得到一个非常简洁、核心的「系统本质」。这个本质才是真正的我们需要关注的。</li>
+</ul>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><ul>
+<li>影响技术选型的决策因素中，需求比经历重要。不要为了简历好看而用新技术。找那些容易和其他模块配合的框架。</li>
+<li>决定技术选型之前，不妨真正去试一试。找两个工程师，花时间调研一下优点和缺点，总结对比，最后选哪个在很多情况下都是很显然的。这可能是在浪费时间吗？有可能。但总比匆匆找到一个非最优解马上开工最后发现不得不绕回来要好。</li>
+<li>记录进行设计的依据。记录做了哪些决策，为什么做了这个决策，以及为什么不用其他选择。</li>
+<li>为任何的技术决策负起责任。很多正确的设计最后却以失败告终。要避免失败，至少做到以下几点：技术决策应该传达给所有相关的人士。</li>
+<li>选好趁手的工具，不要轻易切换。</li>
+</ul>
+<h2 id="工程师的自身成长"><a href="#工程师的自身成长" class="headerlink" title="工程师的自身成长"></a>工程师的自身成长</h2><ul>
+<li>理解硬件。起码知道系统的状态和什么相关，各种硬件的性能级别，有线上报警的时候能根据报警项定位问题。</li>
+<li>软件行业的一个大问题是工程师需要解决远超自己当前理解的问题。因此学习与沟通是关键的能力</li>
+<li>架构师首先是个工程师。假如我做了设计，那起码我应该有能力亲自实现。</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://fwz.github.io/2015/11/21/Thoughts-of-Project-Management/" data-id="cjluiumvo000yknjg54emsun5" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/07/20/Getting-Started-With-Grafana/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Getting Started With Grafana
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2015/05/09/Unit-Test-101/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Unit Test 101</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/29/Practical-Kafka-Usage/" class="title">Practical Apache Kafka Usage</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T16:24:02.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Game/Board-Game/">Board Game</a></p>
+                            <p class="item-title"><a href="/2018/02/21/A-2D-Nim-Game/" class="title">A 2D Nim Game</a></p>
+                            <p class="item-date"><time datetime="2018-02-21T13:15:26.000Z" itemprop="datePublished">2018-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a></p>
+                            <p class="item-title"><a href="/2017/06/07/Understanding-Fstab/" class="title">Understanding Fstab</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T14:35:56.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Career/">Career</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Career/Resolution/">Resolution</a></p>
+                            <p class="item-title"><a href="/2017/02/01/2017-Resolution/" class="title">2017 Resolution</a></p>
+                            <p class="item-date"><time datetime="2017-02-01T09:37:27.000Z" itemprop="datePublished">2017-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2016/08/18/The-Data-Migration-Problem/" class="title">The Data Migration Problem</a></p>
+                            <p class="item-date"><time datetime="2016-08-18T09:37:27.000Z" itemprop="datePublished">2016-08-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/">Career</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Growth/">Growth</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Interview/">Interview</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Public-Speaking/">Public Speaking</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Resolution/">Resolution</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/">Engineering</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Big-Data/">Big Data</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dashboard/">Dashboard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Productivity/">Productivity</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Version-Control/">Version Control</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Visualization/">Visualization</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Board-Game/">Board Game</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Room-Escape/">Room Escape</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Publications/">Publications</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/">Read & Learn</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/Book-Review/">Book Review</a><span class="category-list-count">4</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alfred/">Alfred</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automation/">Automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Avalon/">Avalon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Carbon/">Carbon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Career/">Career</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/">D3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expect/">Expect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/">Flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game-Theory/">Game Theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grafana/">Grafana</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphite/">Graphite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/">HBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/">Hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MAC/">MAC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oozie/">Oozie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/">Pig</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plain-English/">Plain English</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Processing/">Processing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-Speaking/">Public Speaking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/">Reading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolution/">Resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Splunk/">Splunk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thinking/">Thinking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/">Visualization</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zhihu/">Zhihu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translate/">translate</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/Alfred/" style="font-size: 10px;">Alfred</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Avalon/" style="font-size: 10px;">Avalon</a> <a href="/tags/Book-Review-Thoughts/" style="font-size: 10px;">Book Review, Thoughts</a> <a href="/tags/Carbon/" style="font-size: 10px;">Carbon</a> <a href="/tags/Career/" style="font-size: 10px;">Career</a> <a href="/tags/D3/" style="font-size: 16.67px;">D3</a> <a href="/tags/Expect/" style="font-size: 10px;">Expect</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Game-Theory/" style="font-size: 10px;">Game Theory</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/Graphite/" style="font-size: 10px;">Graphite</a> <a href="/tags/HBase/" style="font-size: 10px;">HBase</a> <a href="/tags/Hadoop/" style="font-size: 13.33px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MAC/" style="font-size: 10px;">MAC</a> <a href="/tags/Oozie/" style="font-size: 10px;">Oozie</a> <a href="/tags/Pig/" style="font-size: 13.33px;">Pig</a> <a href="/tags/Plain-English/" style="font-size: 10px;">Plain English</a> <a href="/tags/Processing/" style="font-size: 16.67px;">Processing</a> <a href="/tags/Public-Speaking/" style="font-size: 13.33px;">Public Speaking</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Resolution/" style="font-size: 10px;">Resolution</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Splunk/" style="font-size: 10px;">Splunk</a> <a href="/tags/Thinking/" style="font-size: 13.33px;">Thinking</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/tags/Visualization/" style="font-size: 20px;">Visualization</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/data-science/" style="font-size: 10px;">data science</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Wenzhong<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

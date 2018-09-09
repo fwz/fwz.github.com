@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>【桌游】《大逆转》策略分析 | Wenzhong&#39;s Playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="《大逆转》策略分析 很久前看到过这个桌游的宣传教程，觉得很有意思，于是买回来了和GF玩，玩了大概10局，发现这个游戏的变化真的挺大的。几局下来诞生了三回合速推的一箭穿心打法，从头压制到尾的压迫式打法，另外还有两次激动人心的逆转翻盘节奏。决定写一下心得。 桌游视频教程官方教程 手牌的运营由于手牌一直只能保持4张，所以要留和弃哪些牌，要根据游戏的发展来定。先说说功能牌。 功能牌 禁手：保留优先级很高的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【桌游】《大逆转》策略分析">
+<meta property="og:url" content="http://fwz.github.io/2013/05/12/【桌游】《大逆转》策略分析/index.html">
+<meta property="og:site_name" content="Wenzhong&#39;s Playground">
+<meta property="og:description" content="《大逆转》策略分析 很久前看到过这个桌游的宣传教程，觉得很有意思，于是买回来了和GF玩，玩了大概10局，发现这个游戏的变化真的挺大的。几局下来诞生了三回合速推的一箭穿心打法，从头压制到尾的压迫式打法，另外还有两次激动人心的逆转翻盘节奏。决定写一下心得。 桌游视频教程官方教程 手牌的运营由于手牌一直只能保持4张，所以要留和弃哪些牌，要根据游戏的发展来定。先说说功能牌。 功能牌 禁手：保留优先级很高的">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://wenzhong.qiniudn.com/img/blog/5effect.jpg">
+<meta property="og:updated_time" content="2016-09-05T03:39:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【桌游】《大逆转》策略分析">
+<meta name="twitter:description" content="《大逆转》策略分析 很久前看到过这个桌游的宣传教程，觉得很有意思，于是买回来了和GF玩，玩了大概10局，发现这个游戏的变化真的挺大的。几局下来诞生了三回合速推的一箭穿心打法，从头压制到尾的压迫式打法，另外还有两次激动人心的逆转翻盘节奏。决定写一下心得。 桌游视频教程官方教程 手牌的运营由于手牌一直只能保持4张，所以要留和弃哪些牌，要根据游戏的发展来定。先说说功能牌。 功能牌 禁手：保留优先级很高的">
+<meta name="twitter:image" content="http://wenzhong.qiniudn.com/img/blog/5effect.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wenzhong&#39;s Playground</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/about-me">About Wenzhong</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/wenzhong_avatar.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/about-me">About Wenzhong</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/wenzhong_avatar.png" />
+            <h2 id="name">Wenzhong</h2>
+            <h3 id="title">Coder &amp; Player</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/fwz">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                34
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                38
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/fwz" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/hectorinsane" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-【桌游】《大逆转》策略分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            【桌游】《大逆转》策略分析
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2013/05/12/【桌游】《大逆转》策略分析/">
+            <time datetime="2013-05-12T03:42:20.000Z" itemprop="datePublished">2013-05-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Game/">Game</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Game/Board-Game/">Board Game</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="《大逆转》策略分析"><a href="#《大逆转》策略分析" class="headerlink" title="《大逆转》策略分析"></a>《大逆转》策略分析</h1><p><img src="http://wenzhong.qiniudn.com/img/blog/5effect.jpg" alt=""></p>
+<p>很久前看到过这个桌游的宣传教程，觉得很有意思，于是买回来了和GF玩，玩了大概10局，发现这个游戏的变化真的挺大的。几局下来诞生了三回合速推的一箭穿心打法，从头压制到尾的压迫式打法，另外还有两次激动人心的逆转翻盘节奏。决定写一下心得。</p>
+<h2 id="桌游视频教程"><a href="#桌游视频教程" class="headerlink" title="桌游视频教程"></a>桌游视频教程</h2><p><a href="http://www.tudou.com/programs/view/PEU9V4lq4Zk/" target="_blank" rel="noopener">官方教程</a></p>
+<h2 id="手牌的运营"><a href="#手牌的运营" class="headerlink" title="手牌的运营"></a>手牌的运营</h2><p>由于手牌一直只能保持4张，所以要留和弃哪些牌，要根据游戏的发展来定。先说说功能牌。</p>
+<h4 id="功能牌"><a href="#功能牌" class="headerlink" title="功能牌"></a>功能牌</h4><ul>
+<li>禁手：保留优先级很高的手牌，因为功能牌的作用很大，不可思议的逆转经常是通过一张交换牌开始引起的连锁反应。禁手能够打乱对手的部署。<a id="more"></a></li>
+<li>炸弹：前期优先级较低的牌，对手还没来得及攻进来。后期快进入对峙阶段的时候就相当有用了，这时空位很少，炸掉自己的一张牌，重新发起进攻，经常可以攻入 对手的腹地，然后对手的格子也快满了，通过数字卡牌很难进行有效反击，这时再想办法进入对峙，便宜很大。</li>
+<li>超级加：典型后期牌，配合0来进行进攻。</li>
+<li>交换：这张牌应该是整个游戏里面最逆天的一张牌了。棋盘内使用交换一次，就等于有了两张热牌，假如两张热牌都能够发动逆转的话，给对手的压力就会很大了。保留禁手的原因很大程度就是为了避免这种情况的发生。</li>
+<li>闪电：初期有多余的数字牌的时候一定要多多使用，否则容易被对手压制。</li>
+</ul>
+<p>然后说说数字牌 <em> 数字牌里面，本质上1，2，3，4是相同的，只是有时超级加能够通过1-1-3，1-2-2，这种情况启动而已。 </em> 0这张牌，我个人不太喜欢。因为很难通过这张牌发动逆转，只能通过超级加。所以0是稳定局势用的牌，主要用在对峙之前压制对方变化布局上的变化，以及对方强势攻击时稳定局面。但0这张牌副作用太大，游戏中鼓励的链式变化也会减少。</p>
+<h2 id="棋盘的运营"><a href="#棋盘的运营" class="headerlink" title="棋盘的运营"></a>棋盘的运营</h2><h4 id="初期"><a href="#初期" class="headerlink" title="初期"></a>初期</h4><ul>
+<li>扩张扩张扩张! 放置的原则是使棋盘上有尽可能多的逆转发动空格，我自己的做法主要是保证安全的情况下想办法布一个菱形阵营。争取对方放下的每一张牌我都有可能在自己的回合构成逆转。</li>
+</ul>
+<h4 id="中期"><a href="#中期" class="headerlink" title="中期"></a>中期</h4><ul>
+<li>巩固自己布局的健壮度。这样可以避免被对手炸断或者逆转枢纽后，前线所有的卡牌由于缺乏支撑而被移出棋盘。</li>
+</ul>
+<h2 id="进入对峙"><a href="#进入对峙" class="headerlink" title="进入对峙"></a>进入对峙</h2><ul>
+<li>不要轻易放下最后一张牌进入对峙。对峙中的先手优势我认为是挺大的，所以优势一方要确立较大的优势后再进入对峙。</li>
+<li>通常这个时候优势方本身的棋盘会有空格，所以可以决定什么时候进入对峙，而劣势方就没有空间放牌，所以很有可能几个回合下来双方都是在不断弃牌。这个时候劣势的一方应该根据布局攒一些炸弹或者交换牌谋求反击，当然禁手还是最重要的。很多时候，优势方发动一个交换再一个超级加，最后填完自己剩下的唯一一个空格进入对峙。这时棋盘上劣势方的生存空间就很小了。</li>
+</ul>
+<h2 id="对峙期间"><a href="#对峙期间" class="headerlink" title="对峙期间"></a>对峙期间</h2><ul>
+<li>最简单的思路，进入对峙阶段以后，肯定会有某方是比较优势的，主要说说劣势方。*   首先劣势方要确保自己手里的牌是有可能发动逆转的，比如你棋盘上只有0-1-3，那就趁早GG吧，肯定是要挂的。 所以顺着这个思路，你要抢夺/保留劣势方最重要的一张牌，我称之为pivot。 例如有一局我只剩下4张牌，分别是0-2-2-3，那么很明显，我的pivot就是3。一定要保住，否则肯定玩完。</li>
+<li>多多设计那些会出现连锁局面的阵型。由于交换两张牌位置的变化实在太多，每次只逆转对方一张牌是远远不够的。要多想想各种可能的组合，</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://fwz.github.io/2013/05/12/【桌游】《大逆转》策略分析/" data-id="cjluiumw3001pknjgnguusa9f" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2013/09/15/visualization-resources/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Visualization Learning Resources
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2012/12/31/【读书笔记】时间管理-致系统管理员/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">时间管理--致系统管理员 读后感</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/29/Practical-Kafka-Usage/" class="title">Practical Apache Kafka Usage</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T16:24:02.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Game/Board-Game/">Board Game</a></p>
+                            <p class="item-title"><a href="/2018/02/21/A-2D-Nim-Game/" class="title">A 2D Nim Game</a></p>
+                            <p class="item-date"><time datetime="2018-02-21T13:15:26.000Z" itemprop="datePublished">2018-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a></p>
+                            <p class="item-title"><a href="/2017/06/07/Understanding-Fstab/" class="title">Understanding Fstab</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T14:35:56.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Career/">Career</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Career/Resolution/">Resolution</a></p>
+                            <p class="item-title"><a href="/2017/02/01/2017-Resolution/" class="title">2017 Resolution</a></p>
+                            <p class="item-date"><time datetime="2017-02-01T09:37:27.000Z" itemprop="datePublished">2017-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2016/08/18/The-Data-Migration-Problem/" class="title">The Data Migration Problem</a></p>
+                            <p class="item-date"><time datetime="2016-08-18T09:37:27.000Z" itemprop="datePublished">2016-08-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/">Career</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Growth/">Growth</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Interview/">Interview</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Public-Speaking/">Public Speaking</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Resolution/">Resolution</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/">Engineering</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Big-Data/">Big Data</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dashboard/">Dashboard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Productivity/">Productivity</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Version-Control/">Version Control</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Visualization/">Visualization</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Board-Game/">Board Game</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Room-Escape/">Room Escape</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Publications/">Publications</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/">Read & Learn</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/Book-Review/">Book Review</a><span class="category-list-count">4</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alfred/">Alfred</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automation/">Automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Avalon/">Avalon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Carbon/">Carbon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Career/">Career</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/">D3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expect/">Expect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/">Flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game-Theory/">Game Theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grafana/">Grafana</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphite/">Graphite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/">HBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/">Hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MAC/">MAC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oozie/">Oozie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/">Pig</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plain-English/">Plain English</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Processing/">Processing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-Speaking/">Public Speaking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/">Reading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolution/">Resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Splunk/">Splunk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thinking/">Thinking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/">Visualization</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zhihu/">Zhihu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translate/">translate</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/Alfred/" style="font-size: 10px;">Alfred</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Avalon/" style="font-size: 10px;">Avalon</a> <a href="/tags/Book-Review-Thoughts/" style="font-size: 10px;">Book Review, Thoughts</a> <a href="/tags/Carbon/" style="font-size: 10px;">Carbon</a> <a href="/tags/Career/" style="font-size: 10px;">Career</a> <a href="/tags/D3/" style="font-size: 16.67px;">D3</a> <a href="/tags/Expect/" style="font-size: 10px;">Expect</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Game-Theory/" style="font-size: 10px;">Game Theory</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/Graphite/" style="font-size: 10px;">Graphite</a> <a href="/tags/HBase/" style="font-size: 10px;">HBase</a> <a href="/tags/Hadoop/" style="font-size: 13.33px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MAC/" style="font-size: 10px;">MAC</a> <a href="/tags/Oozie/" style="font-size: 10px;">Oozie</a> <a href="/tags/Pig/" style="font-size: 13.33px;">Pig</a> <a href="/tags/Plain-English/" style="font-size: 10px;">Plain English</a> <a href="/tags/Processing/" style="font-size: 16.67px;">Processing</a> <a href="/tags/Public-Speaking/" style="font-size: 13.33px;">Public Speaking</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Resolution/" style="font-size: 10px;">Resolution</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Splunk/" style="font-size: 10px;">Splunk</a> <a href="/tags/Thinking/" style="font-size: 13.33px;">Thinking</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/tags/Visualization/" style="font-size: 20px;">Visualization</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/data-science/" style="font-size: 10px;">data science</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Wenzhong<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

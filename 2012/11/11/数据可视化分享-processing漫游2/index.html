@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>数据可视化分享——Processing漫游(2) | Wenzhong&#39;s Playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="今天看到一个非常性感的作品，按捺不住就做了个Processing的版本。所以抱歉了，这个漫游系列硬生生地把它插入。继续阅读查看效果吧，按S保存截图，R清空屏幕重新绘图。">
+<meta name="keywords" content="Processing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据可视化分享——Processing漫游(2)">
+<meta property="og:url" content="http://fwz.github.io/2012/11/11/数据可视化分享-processing漫游2/index.html">
+<meta property="og:site_name" content="Wenzhong&#39;s Playground">
+<meta property="og:description" content="今天看到一个非常性感的作品，按捺不住就做了个Processing的版本。所以抱歉了，这个漫游系列硬生生地把它插入。继续阅读查看效果吧，按S保存截图，R清空屏幕重新绘图。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-02T07:31:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据可视化分享——Processing漫游(2)">
+<meta name="twitter:description" content="今天看到一个非常性感的作品，按捺不住就做了个Processing的版本。所以抱歉了，这个漫游系列硬生生地把它插入。继续阅读查看效果吧，按S保存截图，R清空屏幕重新绘图。">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wenzhong&#39;s Playground</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/about-me">About Wenzhong</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/wenzhong_avatar.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/about-me">About Wenzhong</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/wenzhong_avatar.png" />
+            <h2 id="name">Wenzhong</h2>
+            <h3 id="title">Coder &amp; Player</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/fwz">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                34
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                38
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/fwz" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/hectorinsane" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-数据可视化分享-processing漫游2" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            数据可视化分享——Processing漫游(2)
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2012/11/11/数据可视化分享-processing漫游2/">
+            <time datetime="2012-11-11T10:02:39.000Z" itemprop="datePublished">2012-11-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Visualization/">Visualization</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Processing/">Processing</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>今天看到一个非常性感的作品，按捺不住就做了个Processing的版本。所以抱歉了，这个漫游系列硬生生地把它插入。<br>继续阅读查看效果吧，按S保存截图，R清空屏幕重新绘图。</p>
+<a id="more"></a>
+<p>这个例子来自Patrick Gunderson，看到这个例子的时候，我非常好奇，这究竟是用什么算法实现的？旁边有图形帝说可以用热学传导模型加偏微分方程模拟，我瞬间就给跪了。后来找到了作者的介绍，发现算法简单得让人发指。不敢独美，与大家分享。</p>
+<h2 id="Sketch"><a href="#Sketch" class="headerlink" title="Sketch"></a>Sketch</h2>
+<script src="http://7ktqal.com1.z0.glb.clouddn.com/processing.min.js"></script>
+<script type="text/processing" data-processing-target="processing-canvas">
+// This is a naive implement of ablaze.js in processing
+// Thanks Patrick Gunderson's great work
+
+// Wenzhong @ Beijing, Oct 2012
+// wenzhong.work@gmail.com
+
+
+// build config
+int PARTICLE_NUM = 60;
+int MIN_DIST = 70;
+float MIN_SPEED = 0.25;
+float MAX_SPEED = 0.75;
+float RING_SIZE = 150;
+boolean line_connect = true;
+
+// show config
+boolean use_color_map = false;
+boolean use_color_gradient = false;
+float clr;
+float NOISE_SCALE = 0.02;
+float frame_cnt = 0;
+PImage clrmap;
+
+Particle [] ps;
+
+class Particle {
+  public float x, y, rot_angle;
+  private float vx, vy;
+  private int step;
+
+  Particle(float x, float y, float v, float v_angle) {
+    this.x = x;
+    this.y = y;
+    this.vx = v*cos(v_angle);
+    this.vy = v*sin(v_angle);
+    generate_new_curve();
+  }
+
+  public void next() {
+    turn(rot_angle);
+    x += vx;
+    y += vy;
+    step--;
+    if (step <= 0) {
+      generate_new_curve();
+    }
+  }
+
+  public void turn(float rot) {
+    float pvx = vx;
+    float pvy = vy;
+    vx = pvx * cos(rot) - pvy * sin(rot);
+    vy = pvx * sin(rot) + pvy * cos(rot);
+  }
+
+  private void generate_new_curve() {
+    step = (int)random(80, 300);
+    rot_angle = random(-0.005, 0.005);
+  }
+}
+
+void setup() {
+  reset();
+}
+void reset() {
+  size( 600, 600);
+  background(0);
+  smooth();
+
+  ps = new Particle[PARTICLE_NUM];
+
+  // init particles
+  for (int i = 0; i < PARTICLE_NUM; i++) {
+    float v = random(MIN_SPEED, MAX_SPEED);
+    float angle = random(0, 2*PI);
+    float v_angle = random(0, 2*PI);
+
+    ps[i] = new Particle(RING_SIZE * cos(angle), 
+    RING_SIZE * sin(angle), 
+    v, 
+    v_angle);
+  }
+  clr = random(1.0);
+
+  // load color map
+  if (use_color_map)
+    load_color_map();
+}
+
+void draw() {
+  if (use_color_map) {
+    colorMode(RGB, 255);
+    generateGraph( "colormap");
+  } else {
+    filter(INVERT);
+    colorMode(HSB, 1);
+    if (use_color_gradient) {
+      clr += random(0.001);
+      clr = clr % 1;
+    }
+    generateGraph("rand");
+    filter(INVERT);
+  }
+}
+
+void changeColorGradient() {
+  use_color_gradient = !use_color_gradient;
+}
+
+void generateGraph( String coloring_type) {
+
+  translate(width/2, height/2);
+  for (int i = 0; i < PARTICLE_NUM; i++) {
+    for (int j = i+1; j < PARTICLE_NUM; j++) {
+      float dis = dist(ps[i].x, ps[i].y, ps[j].x, ps[j].y);
+      if ( dis < MIN_DIST ) {
+        if (coloring_type == "rand") {
+          float k = (0.5 + float(i)/2.0) / PARTICLE_NUM;
+          fill(clr, pow(k, 0.1), 0.9 * sqrt(1-k), 0.1 * (1  - dis / MIN_DIST));
+          stroke(clr, pow(k, 0.1), 0.9 * sqrt(1-k), 0.1 * (1  - dis / MIN_DIST));
+        } else if (coloring_type == "colormap") {
+          color c = set_color_by_map(ps[i]);
+          fill((c >> 16) & 0xFF, (c >> 8) & 0xFF, c & 0xFF, 32 * (1 - dis / MIN_DIST));
+          stroke((c >> 16) & 0xFF, (c >> 8) & 0xFF, c & 0xFF, 32 * (1 - dis / MIN_DIST));
+        }
+        buildConnect(ps[i], ps[j], dis);
+      }
+    }
+    ps[i].next();
+  }
+}
+
+void keyPressed() {
+  switch(key) {
+  case 'g':
+    changeColorGradient();
+    break;
+  case 't': 
+    changeConnectionBuild(); 
+    break;
+  case 'r': 
+    reset(); 
+    break;
+  case 's': 
+    saveFrame(); 
+    break;
+  case 'c': 
+    changeColor(); 
+    break;
+  }
+}
+
+void buildConnect(Particle p1, Particle p2, float dis) {
+
+  if (line_connect) {
+    line(p1.x, p1.y, p2.x, p2.y);
+  } else {
+    float cx = (p1.x + p2.x)/2;
+    float cy = (p1.y + p2.y)/2;
+    noFill();
+    ellipse(cx, cy, dis/2, dis/2);
+  }
+}
+
+void changeConnectionBuild() {
+  line_connect = ! line_connect;
+}
+
+void changeColor() {
+  use_color_map = ! use_color_map;
+}
+
+void load_color_map() {
+  clrmap = loadImage("chocolate.png");
+  blurImage(clrmap);
+}
+
+color set_color_by_map(Particle p) {
+  if (clrmap.width > 0) {
+    if (abs(p.x) >= width/2 - 1 || abs(p.y) >= height/2 - 1) return 0;
+    float x = map(p.x, -width/2, width/2, 0, clrmap.width);
+    float y = map(p.y, -height/2, height/2, 0, clrmap.height);
+    if ((int)((y) * clrmap.width) + (int) (x-1) >= clrmap.width * clrmap.height)
+      return 0;
+    color c = clrmap.pixels[(int)((y) * clrmap.width) + (int) (x-1)];
+    return c;
+  }
+  return 0;
+}
+
+// shamlessly taken from the processing.org's, for blurring image
+void blurImage(PImage img) {
+  float v = 1.0 / 25.0;
+  float[][] kernel = {
+    { 
+      v, v, v, v, v
+    }
+    , 
+    { 
+      v, v, v, v, v
+    }
+    , 
+    { 
+      v, v, v, v, v
+    }
+    , 
+    { 
+      v, v, v, v, v
+    }
+    , 
+    { 
+      v, v, v, v, v
+    }
+  };
+
+  // Loop through every pixel in the image
+  for (int y = 2; y < img.height-2; y++) {   // Skip top and bottom edges
+    for (int x = 2; x < img.width-2; x++) {  // Skip left and right edges
+      float sum_r = 0, sum_g = 0, sum_b = 0; // Kernel sum for this pixel
+      for (int ky = -2; ky <= 2; ky++) {
+        for (int kx = -2; kx <= 2; kx++) {
+          // Calculate the adjacent pixel for this kernel point
+          int pos = (y + ky)*img.width + (x + kx);
+          float val_r = red(img.pixels[pos]);
+          float val_g = green(img.pixels[pos]);
+          float val_b = blue(img.pixels[pos]);
+
+          // Multiply adjacent pixels based on the kernel values
+          sum_r += kernel[ky+2][kx+2] * val_r;
+          sum_g += kernel[ky+2][kx+2] * val_g;
+          sum_b += kernel[ky+2][kx+2] * val_b;
+        }
+      }
+      // For this pixel in the new image, set the gray value
+      // based on the sum from the kernel
+      img.pixels[y*img.width + x] = color(sum_r, sum_g, sum_b);
+    }
+  }
+}
+
+
+</script>
+<canvas id="processing-canvas"> </canvas>
+
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This is a naive implement of ablaze.js in processing</span></span><br><span class="line"><span class="comment">// Thanks Patrick Gunderson's great work</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Wenzhong @ Beijing, Oct 2012</span></span><br><span class="line"><span class="comment">// wenzhong.work@gmail.com</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// build config</span></span><br><span class="line"><span class="keyword">int</span> PARTICLE_NUM = <span class="number">60</span>;</span><br><span class="line"><span class="keyword">int</span> MIN_DIST = <span class="number">70</span>;</span><br><span class="line"><span class="keyword">float</span> MIN_SPEED = <span class="number">0.25</span>;</span><br><span class="line"><span class="keyword">float</span> MAX_SPEED = <span class="number">0.75</span>;</span><br><span class="line"><span class="keyword">float</span> RING_SIZE = <span class="number">150</span>;</span><br><span class="line"><span class="keyword">boolean</span> line_connect = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// show config</span></span><br><span class="line"><span class="keyword">boolean</span> use_color_map = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">boolean</span> use_color_gradient = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">float</span> clr;</span><br><span class="line"><span class="keyword">float</span> NOISE_SCALE = <span class="number">0.02</span>;</span><br><span class="line"><span class="keyword">float</span> frame_cnt = <span class="number">0</span>;</span><br><span class="line">PImage clrmap;</span><br><span class="line"></span><br><span class="line">Particle [] ps;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Particle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">float</span> x, y, rot_angle;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">float</span> vx, vy;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> step;</span><br><span class="line"></span><br><span class="line">  Particle(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> v, <span class="keyword">float</span> v_angle) &#123;</span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">    <span class="keyword">this</span>.vx = v*cos(v_angle);</span><br><span class="line">    <span class="keyword">this</span>.vy = v*sin(v_angle);</span><br><span class="line">    generate_new_curve();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    turn(rot_angle);</span><br><span class="line">    x += vx;</span><br><span class="line">    y += vy;</span><br><span class="line">    step--;</span><br><span class="line">    <span class="keyword">if</span> (step &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">      generate_new_curve();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turn</span><span class="params">(<span class="keyword">float</span> rot)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> pvx = vx;</span><br><span class="line">    <span class="keyword">float</span> pvy = vy;</span><br><span class="line">    vx = pvx * cos(rot) - pvy * sin(rot);</span><br><span class="line">    vy = pvx * sin(rot) + pvy * cos(rot);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">generate_new_curve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    step = (<span class="keyword">int</span>)random(<span class="number">80</span>, <span class="number">300</span>);</span><br><span class="line">    rot_angle = random(-<span class="number">0.005</span>, <span class="number">0.005</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  reset();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size( <span class="number">600</span>, <span class="number">600</span>);</span><br><span class="line">  background(<span class="number">0</span>);</span><br><span class="line">  smooth();</span><br><span class="line"></span><br><span class="line">  ps = <span class="keyword">new</span> Particle[PARTICLE_NUM];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// init particles</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; PARTICLE_NUM; i++) &#123;</span><br><span class="line">    <span class="keyword">float</span> v = random(MIN_SPEED, MAX_SPEED);</span><br><span class="line">    <span class="keyword">float</span> angle = random(<span class="number">0</span>, <span class="number">2</span>*PI);</span><br><span class="line">    <span class="keyword">float</span> v_angle = random(<span class="number">0</span>, <span class="number">2</span>*PI);</span><br><span class="line"></span><br><span class="line">    ps[i] = <span class="keyword">new</span> Particle(RING_SIZE * cos(angle), </span><br><span class="line">    RING_SIZE * sin(angle), </span><br><span class="line">    v, </span><br><span class="line">    v_angle);</span><br><span class="line">  &#125;</span><br><span class="line">  clr = random(<span class="number">1.0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// load color map</span></span><br><span class="line">  <span class="keyword">if</span> (use_color_map)</span><br><span class="line">    load_color_map();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (use_color_map) &#123;</span><br><span class="line">    colorMode(RGB, <span class="number">255</span>);</span><br><span class="line">    generateGraph( <span class="string">"colormap"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    filter(INVERT);</span><br><span class="line">    colorMode(HSB, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (use_color_gradient) &#123;</span><br><span class="line">      clr += random(<span class="number">0.001</span>);</span><br><span class="line">      clr = clr % <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    generateGraph(<span class="string">"rand"</span>);</span><br><span class="line">    filter(INVERT);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">changeColorGradient</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  use_color_gradient = !use_color_gradient;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">generateGraph</span><span class="params">( String coloring_type)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  translate(width/<span class="number">2</span>, height/<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; PARTICLE_NUM; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; PARTICLE_NUM; j++) &#123;</span><br><span class="line">      <span class="keyword">float</span> dis = dist(ps[i].x, ps[i].y, ps[j].x, ps[j].y);</span><br><span class="line">      <span class="keyword">if</span> ( dis &lt; MIN_DIST ) &#123;</span><br><span class="line">        <span class="keyword">if</span> (coloring_type == <span class="string">"rand"</span>) &#123;</span><br><span class="line">          <span class="keyword">float</span> k = (<span class="number">0.5</span> + <span class="keyword">float</span>(i)/<span class="number">2.0</span>) / PARTICLE_NUM;</span><br><span class="line">          fill(clr, pow(k, <span class="number">0.1</span>), <span class="number">0.9</span> * sqrt(<span class="number">1</span>-k), <span class="number">0.1</span> * (<span class="number">1</span>  - dis / MIN_DIST));</span><br><span class="line">          stroke(clr, pow(k, <span class="number">0.1</span>), <span class="number">0.9</span> * sqrt(<span class="number">1</span>-k), <span class="number">0.1</span> * (<span class="number">1</span>  - dis / MIN_DIST));</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (coloring_type == <span class="string">"colormap"</span>) &#123;</span><br><span class="line">          color c = set_color_by_map(ps[i]);</span><br><span class="line">          fill((c &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>, (c &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>, c &amp; <span class="number">0xFF</span>, <span class="number">32</span> * (<span class="number">1</span> - dis / MIN_DIST));</span><br><span class="line">          stroke((c &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>, (c &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>, c &amp; <span class="number">0xFF</span>, <span class="number">32</span> * (<span class="number">1</span> - dis / MIN_DIST));</span><br><span class="line">        &#125;</span><br><span class="line">        buildConnect(ps[i], ps[j], dis);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ps[i].next();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">keyPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(key) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'g'</span>:</span><br><span class="line">    changeColorGradient();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'t'</span>: </span><br><span class="line">    changeConnectionBuild(); </span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'r'</span>: </span><br><span class="line">    reset(); </span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'s'</span>: </span><br><span class="line">    saveFrame(); </span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'c'</span>: </span><br><span class="line">    changeColor(); </span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">buildConnect</span><span class="params">(Particle p1, Particle p2, <span class="keyword">float</span> dis)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (line_connect) &#123;</span><br><span class="line">    line(p1.x, p1.y, p2.x, p2.y);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">float</span> cx = (p1.x + p2.x)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">float</span> cy = (p1.y + p2.y)/<span class="number">2</span>;</span><br><span class="line">    noFill();</span><br><span class="line">    ellipse(cx, cy, dis/<span class="number">2</span>, dis/<span class="number">2</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">changeConnectionBuild</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  line_connect = ! line_connect;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">changeColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  use_color_map = ! use_color_map;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">load_color_map</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  clrmap = loadImage(<span class="string">"chocolate.png"</span>);</span><br><span class="line">  blurImage(clrmap);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">color <span class="title">set_color_by_map</span><span class="params">(Particle p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (clrmap.width &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (abs(p.x) &gt;= width/<span class="number">2</span> - <span class="number">1</span> || abs(p.y) &gt;= height/<span class="number">2</span> - <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">float</span> x = map(p.x, -width/<span class="number">2</span>, width/<span class="number">2</span>, <span class="number">0</span>, clrmap.width);</span><br><span class="line">    <span class="keyword">float</span> y = map(p.y, -height/<span class="number">2</span>, height/<span class="number">2</span>, <span class="number">0</span>, clrmap.height);</span><br><span class="line">    <span class="keyword">if</span> ((<span class="keyword">int</span>)((y) * clrmap.width) + (<span class="keyword">int</span>) (x-<span class="number">1</span>) &gt;= clrmap.width * clrmap.height)</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    color c = clrmap.pixels[(<span class="keyword">int</span>)((y) * clrmap.width) + (<span class="keyword">int</span>) (x-<span class="number">1</span>)];</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// shamlessly taken from the processing.org's, for blurring image</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">blurImage</span><span class="params">(PImage img)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">float</span> v = <span class="number">1.0</span> / <span class="number">25.0</span>;</span><br><span class="line">  <span class="keyword">float</span>[][] kernel = &#123;</span><br><span class="line">    &#123; </span><br><span class="line">      v, v, v, v, v</span><br><span class="line">    &#125;</span><br><span class="line">    , </span><br><span class="line">    &#123; </span><br><span class="line">      v, v, v, v, v</span><br><span class="line">    &#125;</span><br><span class="line">    , </span><br><span class="line">    &#123; </span><br><span class="line">      v, v, v, v, v</span><br><span class="line">    &#125;</span><br><span class="line">    , </span><br><span class="line">    &#123; </span><br><span class="line">      v, v, v, v, v</span><br><span class="line">    &#125;</span><br><span class="line">    , </span><br><span class="line">    &#123; </span><br><span class="line">      v, v, v, v, v</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Loop through every pixel in the image</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">2</span>; y &lt; img.height-<span class="number">2</span>; y++) &#123;   <span class="comment">// Skip top and bottom edges</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">2</span>; x &lt; img.width-<span class="number">2</span>; x++) &#123;  <span class="comment">// Skip left and right edges</span></span><br><span class="line">      <span class="keyword">float</span> sum_r = <span class="number">0</span>, sum_g = <span class="number">0</span>, sum_b = <span class="number">0</span>; <span class="comment">// Kernel sum for this pixel</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> ky = -<span class="number">2</span>; ky &lt;= <span class="number">2</span>; ky++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> kx = -<span class="number">2</span>; kx &lt;= <span class="number">2</span>; kx++) &#123;</span><br><span class="line">          <span class="comment">// Calculate the adjacent pixel for this kernel point</span></span><br><span class="line">          <span class="keyword">int</span> pos = (y + ky)*img.width + (x + kx);</span><br><span class="line">          <span class="keyword">float</span> val_r = red(img.pixels[pos]);</span><br><span class="line">          <span class="keyword">float</span> val_g = green(img.pixels[pos]);</span><br><span class="line">          <span class="keyword">float</span> val_b = blue(img.pixels[pos]);</span><br><span class="line"></span><br><span class="line">          <span class="comment">// Multiply adjacent pixels based on the kernel values</span></span><br><span class="line">          sum_r += kernel[ky+<span class="number">2</span>][kx+<span class="number">2</span>] * val_r;</span><br><span class="line">          sum_g += kernel[ky+<span class="number">2</span>][kx+<span class="number">2</span>] * val_g;</span><br><span class="line">          sum_b += kernel[ky+<span class="number">2</span>][kx+<span class="number">2</span>] * val_b;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// For this pixel in the new image, set the gray value</span></span><br><span class="line">      <span class="comment">// based on the sum from the kernel</span></span><br><span class="line">      img.pixels[y*img.width + x] = color(sum_r, sum_g, sum_b);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Some-explanation"><a href="#Some-explanation" class="headerlink" title="Some explanation"></a>Some explanation</h2><p>代码好像很多，但其实核心只有三部分：</p>
+<h3 id="一个简单的粒子类-Particle"><a href="#一个简单的粒子类-Particle" class="headerlink" title="一个简单的粒子类 Particle"></a>一个简单的粒子类 Particle</h3><pre><code>Particle类简单写了一个，和一般的物理库应该比较类似。保存当前粒子的位置和速度，以及画弧的进度。当弧画完以后，重新生成一条待画弧（边数和转向）。
+</code></pre><h3 id="控制Particle对象运动的逻辑"><a href="#控制Particle对象运动的逻辑" class="headerlink" title="控制Particle对象运动的逻辑"></a>控制Particle对象运动的逻辑</h3><p>Particle的轨迹由很多段弧组成。每帧我们会将粒子的运动方向改变一点点（turn方法），然后前进一点点。turn方法的关键是实现转向的这两行（回忆一下三角函数的和差化积吧）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vx = pvx * cos(rot) - pvy * sin(rot);</span><br><span class="line">vy = pvx * sin(rot) + pvy * cos(rot);</span><br></pre></td></tr></table></figure></p>
+<h3 id="构图的逻辑"><a href="#构图的逻辑" class="headerlink" title="构图的逻辑"></a>构图的逻辑</h3><p>当某两个粒子之间的距离小于某个设定阈值的时候，就在他们当前位置间连一条直线。</p>
+<p>That’s it.</p>
+<p>新的知识点很少：</p>
+<pre><code>*   Sketch之中，可以自定义类。我们每新建一个Processing的Sketch（假设叫skt.pde）时，其实都是新建了一个类，名为skt。我们可以在skt里面自定义任意的类（在这里就是Particle，会被Processing视作java里面的内部类），所以他们能看到所谓“全局变量”。
+*   keyPressed()函数用于接收用户输入。key变量就是触发keyPressed函数的键的代号。
+</code></pre><p>这应该是半年来我看到的最具备美感的sketch了。你同意否？</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://fwz.github.io/2012/11/11/数据可视化分享-processing漫游2/" data-id="cjluiumy9006mknjghkx5a8bx" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2012/11/21/数据可视化分享-processing漫游3/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    数据可视化分享——Processing漫游(3)
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2012/11/09/处女面试小结/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">处女面试小结</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/29/Practical-Kafka-Usage/" class="title">Practical Apache Kafka Usage</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T16:24:02.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Game/Board-Game/">Board Game</a></p>
+                            <p class="item-title"><a href="/2018/02/21/A-2D-Nim-Game/" class="title">A 2D Nim Game</a></p>
+                            <p class="item-date"><time datetime="2018-02-21T13:15:26.000Z" itemprop="datePublished">2018-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a></p>
+                            <p class="item-title"><a href="/2017/06/07/Understanding-Fstab/" class="title">Understanding Fstab</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T14:35:56.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Career/">Career</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Career/Resolution/">Resolution</a></p>
+                            <p class="item-title"><a href="/2017/02/01/2017-Resolution/" class="title">2017 Resolution</a></p>
+                            <p class="item-date"><time datetime="2017-02-01T09:37:27.000Z" itemprop="datePublished">2017-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2016/08/18/The-Data-Migration-Problem/" class="title">The Data Migration Problem</a></p>
+                            <p class="item-date"><time datetime="2016-08-18T09:37:27.000Z" itemprop="datePublished">2016-08-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/">Career</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Growth/">Growth</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Interview/">Interview</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Public-Speaking/">Public Speaking</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Resolution/">Resolution</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/">Engineering</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Big-Data/">Big Data</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dashboard/">Dashboard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Productivity/">Productivity</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Version-Control/">Version Control</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Visualization/">Visualization</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Board-Game/">Board Game</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Room-Escape/">Room Escape</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Publications/">Publications</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/">Read & Learn</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/Book-Review/">Book Review</a><span class="category-list-count">4</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alfred/">Alfred</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automation/">Automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Avalon/">Avalon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Carbon/">Carbon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Career/">Career</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/">D3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expect/">Expect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/">Flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game-Theory/">Game Theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grafana/">Grafana</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphite/">Graphite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/">HBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/">Hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MAC/">MAC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oozie/">Oozie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/">Pig</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plain-English/">Plain English</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Processing/">Processing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-Speaking/">Public Speaking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/">Reading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolution/">Resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Splunk/">Splunk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thinking/">Thinking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/">Visualization</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zhihu/">Zhihu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translate/">translate</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/Alfred/" style="font-size: 10px;">Alfred</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Avalon/" style="font-size: 10px;">Avalon</a> <a href="/tags/Book-Review-Thoughts/" style="font-size: 10px;">Book Review, Thoughts</a> <a href="/tags/Carbon/" style="font-size: 10px;">Carbon</a> <a href="/tags/Career/" style="font-size: 10px;">Career</a> <a href="/tags/D3/" style="font-size: 16.67px;">D3</a> <a href="/tags/Expect/" style="font-size: 10px;">Expect</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Game-Theory/" style="font-size: 10px;">Game Theory</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/Graphite/" style="font-size: 10px;">Graphite</a> <a href="/tags/HBase/" style="font-size: 10px;">HBase</a> <a href="/tags/Hadoop/" style="font-size: 13.33px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MAC/" style="font-size: 10px;">MAC</a> <a href="/tags/Oozie/" style="font-size: 10px;">Oozie</a> <a href="/tags/Pig/" style="font-size: 13.33px;">Pig</a> <a href="/tags/Plain-English/" style="font-size: 10px;">Plain English</a> <a href="/tags/Processing/" style="font-size: 16.67px;">Processing</a> <a href="/tags/Public-Speaking/" style="font-size: 13.33px;">Public Speaking</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Resolution/" style="font-size: 10px;">Resolution</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Splunk/" style="font-size: 10px;">Splunk</a> <a href="/tags/Thinking/" style="font-size: 13.33px;">Thinking</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/tags/Visualization/" style="font-size: 20px;">Visualization</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/data-science/" style="font-size: 10px;">data science</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Wenzhong<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Evolution of Metric System Architecture | Wenzhong&#39;s Playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="PrefaceIn the past 2 years, I spent about 70% of my working time to build, to break, and to fix data products. This article is a brief retrospect of my understanding on building the whole systems, as">
+<meta name="keywords" content="Hive,Pig,Hadoop,HBase,Oozie,Flume,Splunk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Evolution of Metric System Architecture">
+<meta property="og:url" content="http://fwz.github.io/2015/03/26/Evolution-of-Metric-System-Architecture/index.html">
+<meta property="og:site_name" content="Wenzhong&#39;s Playground">
+<meta property="og:description" content="PrefaceIn the past 2 years, I spent about 70% of my working time to build, to break, and to fix data products. This article is a brief retrospect of my understanding on building the whole systems, as">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://wenzhong.qiniudn.com/img/blog/data_system.png">
+<meta property="og:image" content="http://wenzhong.qiniudn.com/img/blog/Dashboard Evolution.001.png">
+<meta property="og:image" content="http://wenzhong.qiniudn.com/img/blog/Dashboard Evolution.002.png">
+<meta property="og:image" content="http://wenzhong.qiniudn.com/img/blog/Dashboard Evolution.003.png">
+<meta property="og:updated_time" content="2016-09-05T03:39:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Evolution of Metric System Architecture">
+<meta name="twitter:description" content="PrefaceIn the past 2 years, I spent about 70% of my working time to build, to break, and to fix data products. This article is a brief retrospect of my understanding on building the whole systems, as">
+<meta name="twitter:image" content="http://wenzhong.qiniudn.com/img/blog/data_system.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wenzhong&#39;s Playground</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/about-me">About Wenzhong</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/wenzhong_avatar.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/about-me">About Wenzhong</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/wenzhong_avatar.png" />
+            <h2 id="name">Wenzhong</h2>
+            <h3 id="title">Coder &amp; Player</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/fwz">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                34
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                38
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/fwz" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/hectorinsane" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Evolution-of-Metric-System-Architecture" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Evolution of Metric System Architecture
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2015/03/26/Evolution-of-Metric-System-Architecture/">
+            <time datetime="2015-03-26T06:31:12.000Z" itemprop="datePublished">2015-03-26</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Big-Data/">Big Data</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Flume/">Flume</a>, <a class="tag-link" href="/tags/HBase/">HBase</a>, <a class="tag-link" href="/tags/Hadoop/">Hadoop</a>, <a class="tag-link" href="/tags/Hive/">Hive</a>, <a class="tag-link" href="/tags/Oozie/">Oozie</a>, <a class="tag-link" href="/tags/Pig/">Pig</a>, <a class="tag-link" href="/tags/Splunk/">Splunk</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://wenzhong.qiniudn.com/img/blog/data_system.png" alt=""></p>
+<h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>In the past 2 years, I spent about 70% of my working time to build, to break, and to fix data products. This article is a brief retrospect of my understanding on building the whole systems, as well as what kind of tools could be plugged as components.</p>
+<h3 id="Goal-of-a-data-System"><a href="#Goal-of-a-data-System" class="headerlink" title="Goal of a data System"></a>Goal of a data System</h3><p>We use data to understand reality and improve our product. This is the primary goal of a data/metric system. A good data system answers question, a better data system identifies root causes, and an even better data system help improve the whole system directly. </p>
+<h3 id="Use-cases"><a href="#Use-cases" class="headerlink" title="Use cases"></a>Use cases</h3><p>In Yahoo!, the data platform I am working on mainly support a Personalization System (Recommendation system). During the iteration of the recom system, we follow and forecast what would be the actual use cases for the team to understand or to improve the Recom system. The major use cases for our system includes: </p>
+<ul>
+<li>Understand system performance with reports from different key metrics</li>
+<li>Detect / identify metric abnormal / data pipeline failure</li>
+<li>Collect user feedback data to improve system online in short cycle</li>
+<li>Make it easy for PM/Dev/Scientist to play with data</li>
+</ul>
+<p>For different stage, we focus on different aspect and use different tools / techniques to solve problems. Let me illustrate.</p>
+<a id="more"></a>
+<hr>
+<h2 id="Stage-1-System-Validation"><a href="#Stage-1-System-Validation" class="headerlink" title="Stage 1: System Validation"></a>Stage 1: System Validation</h2><p><img src="http://wenzhong.qiniudn.com/img/blog/Dashboard Evolution.001.png" alt=""><br>In this Stage, both the recom system and the metric system are in prototype status. As data team, our top priority is to use data to identify whether the recom system work as expect, which means we care about our services more than our actual user at this stage. So we apply a “scraper”, mocking thousands of different queries to visit our backend system. Then extract the instrumentation we are interested in, and compare with our design  using different user profile to generate  And the above graph show a scraper pattern.</p>
+<ol>
+<li>We build a scraper to send multiple mock requests</li>
+<li>Analysis the statistical result from response of mock requests</li>
+<li>Write the statistical result to a local MySQL.</li>
+<li>The front end of data product call MySQL directly to get data and render</li>
+</ol>
+<hr>
+<h2 id="Stage-2-Report-System-Performance-Metrics"><a href="#Stage-2-Report-System-Performance-Metrics" class="headerlink" title="Stage 2: Report System Performance Metrics"></a>Stage 2: Report System Performance Metrics</h2><p><img src="http://wenzhong.qiniudn.com/img/blog/Dashboard Evolution.002.png" alt=""></p>
+<p>Now we start to care more about user, we want to know how user in different segments interact with our business product. Thus we collect a user behaviour log (which is not produced from our side), and compute metrics like Retention Rate and CTR(click through rate) to measure user’s engagement.</p>
+<p>Before starting to expand our system, let’s review our use cases: “Understand system performance with reports from different key metrics”. Two estimation should be considered: volume of data &amp; latency of report. </p>
+<p>For volume of data, we should be aware of the “dimension explosion” effect. For example, we might have a user location segment/dimension when reporting our DAU metrics, if the location are split by nations, maybe 50 times of volume are needed, if the location are split by city, then the number will be much scary. This is only 1 dimension. Think about combination of different dimensions. The segment might based on age of the user, location of the user, login status of the user, the A/B test id, etc. the combination of dimensions will soon explode to a number you might not imagine before. So here we have to come up a solution of scalability.</p>
+<p>While volume of data might vary, latency of report should be the same. Instant response is our goal. A low latency should be a must have features.</p>
+<p>When interpret them into a design goal, they should be:</p>
+<ul>
+<li><strong>Highly scalable</strong></li>
+<li><strong>Low latency on read queries</strong></li>
+</ul>
+<h4 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4><p>First of all, using Hadoop is natural,</p>
+<ul>
+<li>User behaviour logs (TB / daily) are aggregated on HDFS</li>
+<li>Hadoop is still a very good playground for such data manipulation.</li>
+</ul>
+<p>Considering the data volume / latency factor, We select <a href="hbase.apache.org">HBase</a> in our data storage layer.</p>
+<ul>
+<li>Scalable when data volume increase</li>
+<li>Friendly integration with HDFS and other Hadoop projects</li>
+<li>Good (enough) latency on range query</li>
+<li>No relation query use case in predictable future</li>
+</ul>
+<p>Some alternative might have their shortcomings, such as Hive could not provide instant response, and it take many maintenance effort to scale MySQL and keep data in sync.</p>
+<p>After stack selection done, we should figure out a general schema design. In most report system, schema cover “metric id/name”, “dimensions”, “values”. Since HBase is a rowkey based KV database, so this is also about designing the construction of rowkey, to make it represent “metric_id/name” and “dimensions”, and be <strong>backward compatible</strong>.</p>
+<p>And this is our rowkey schema:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hash|metric_name^dim1_val^dim2_val^...|timestamp</span><br></pre></td></tr></table></figure>
+<p>This schema provide following features:</p>
+<ul>
+<li><strong>Load Balance</strong>. Hash is used as a load balanced technique by HBase, generated from md5 of “metric_name” + “dimensions”. This could guarantee that for the same combination of metrics and dimensions, they could fall into the same region server indicated by the hash value.</li>
+<li>Scanning operation is also efficient, since rows are sorted by row key. So same metrics with same dimensions are clustered and sorted by the timestamp. Given a time range then we could define a start row and end row to scan the rows between.</li>
+<li><strong>Backward compatibility</strong>. Note that not all metrics share the same dimension. A shared configuration is used to store rowkey definition for different metrics. Dimensions are added sequentially in rowkey. For example, for metric M with dimension P, Q, the key looks like “M^p^q”. when adding a dimension S,  the key looks like “M^p^q^s”. However, sometimes we want to ignore dimension S in the report. At this time, trailing empty dimension will be omitted in rowkey. We will still get “M^p^q”, which is backward compatible with the rowkey without the new dimension S.</li>
+</ul>
+<h4 id="Data-Pipeline"><a href="#Data-Pipeline" class="headerlink" title="Data Pipeline"></a>Data Pipeline</h4><p>Most data pipelines are actually taking ETL operation against data. In our cases, ETL against logs mainly output aggregations number on limited fields. A more reasonable and natural choice on Hadoop is <a href="https://pig.apache.org/" target="_blank" rel="noopener">Pig</a> instead of <a href="https://hive.apache.org/" target="_blank" rel="noopener">Hive</a>. See more from <a href="https://developer.yahoo.com/blogs/hadoop/comparing-pig-latin-sql-constructing-data-processing-pipelines-444.html" target="_blank" rel="noopener">Alan Gates’ summary</a>. With the support of UDF (which could be written in Python/Ruby/JS), constructing an ETL data pipeline is effective.</p>
+<h4 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h4><p>Another tools we need is job scheduler. If we want to generate regular daily report, the most straight-forward way is to start a cronjob to run the report generation pipeline regularly. But in real world, a pipeline might have external dependencies. In our case, we have to wait till the user log is available then we could start. Sure we can write a loop in the crontab to wait, or trigger this job with a reasonable delay? But how long should we wait? How could I start my pipeline once the dependency is ready? what if we have multiple dependencies?</p>
+<p>Besides, the pipeline topology should be taken cared. A pipeline in our case cover at least 2 steps: metrics generation and persistance. Each one is a different job. We should also trigger persistance job or fail the pipeline once the generation job succeed / failed.</p>
+<p><a href="oozie.apache.org/">Apache Oozie</a> came out and it save us tons of efforts. On many cases, we use it as a data-trigger, when all dependency data is ready, trigger a series of jobs.</p>
+<h4 id="Data-Product-Serving"><a href="#Data-Product-Serving" class="headerlink" title="Data Product Serving"></a>Data Product Serving</h4><p>To secure our backend data and as a more regularized way to manage data, we implement a Serving layer using Tomcat. Since most operation happened in data products are READ operation, we mainly focus on RPS of Serving. For a internal report system, this layer could be very light weighted.</p>
+<h4 id="Frontend"><a href="#Frontend" class="headerlink" title="Frontend"></a>Frontend</h4><p>We made our FE more user-friendly by leveraging <a href="getbootstrap.com/">Bootstrap</a> (For page Layout/CSS), <a href="www.highcharts.com/">Highchart</a> (For the charting module). <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> is used to communicate with Serving.</p>
+<h2 id="Stage-3-Expand-Ecosystem"><a href="#Stage-3-Expand-Ecosystem" class="headerlink" title="Stage 3: Expand Ecosystem"></a>Stage 3: Expand Ecosystem</h2><p>As the number of reporting metrics increase, some other problems / requirements emerged. We integrate more component to solve real world problems such as monitoring, metric self-service, online machine learning.<br><img src="http://wenzhong.qiniudn.com/img/blog/Dashboard Evolution.003.png" alt=""></p>
+<h3 id="Abnormal-Detection"><a href="#Abnormal-Detection" class="headerlink" title="Abnormal Detection"></a>Abnormal Detection</h3><p>As number of pipelines increases, probability of a broken pipeline also increases.</p>
+<p>First of all, data dependencies matters. Here data dependencies is actually a topology dependency, which mean pipeline A need pipeline B’s output as input. thus A depends on B. When pipeline B breaks or delays, pipeline A will also get blocked. Thus we get metrics delayed. For time sensitive metrics, detecting such issues become more important.</p>
+<p>Secondly, we’d like to detect abnormal value in metrics. For example, if Ads CTR become 0 after a release, we definitely want to get some notifications immediately instead of knowing revenue of the past week are blank one week later.</p>
+<p>So a detection system is implemented. For metric delay issue, we label each pipeline with expected running time, then detection system system build data dependencies graph according to configs and source code of data pipeline. Then we scan the intermediate data on HDFS to see whether each pipeline have produce output. </p>
+<p>In this way, we have enough information to get status of each pipelines. If delay occurs, we will be able to know why.</p>
+<p>To detect metric abnormally, we also define our metric detectors, which use configurable parameters to control detect algorithm. With a series of metrics data as input, could apply numerous algorithm to detect metric abnormal.</p>
+<p>One surprise finding is that, using a fixed threshold is one of our best friend if quality of source data could not be guaranteed. (To be illustrated)</p>
+<h3 id="Ad-hoc-Query"><a href="#Ad-hoc-Query" class="headerlink" title="Ad-hoc Query"></a>Ad-hoc Query</h3><p>Now we have more and more data, people wish we could help answer their questions using our existing data, QUICKLY. With our previous architecture, such requirement / enquiry often require us to build and launch a new data pipeline (even not regularly), because the enquiry  could not be computed from our existing metrics. It is not cost-effective for following reasons: 1. it take human resources to finish such a task. 2. communication cost is un-imaginable big especially for people in remote office. </p>
+<p>To make good use of data and reduce engineering efforts, we decided to build a data-warehouse: Store atomic data for both metric computation and ad-hoc query. Since the enquiry are mostly relational (Such as “what are the top 100 publishers (get most clicks) among mid-age user?”), we use Hive(<a href="https://hive.apache.org/" target="_blank" rel="noopener">https://hive.apache.org/</a>) to build our data warehouse. With Support of HCatalog(<a href="http://hortonworks.com/hadoop/hcatalog/)" target="_blank" rel="noopener">http://hortonworks.com/hadoop/hcatalog/)</a>, Pig and Other MapReduce could easily access / operate data in Hive.</p>
+<p>Also an user interface is necessary for a data warehouse, currently we are using our own UI, and will switch to Hue(<a href="http://gethue.com/" target="_blank" rel="noopener">http://gethue.com/</a>) in near future.</p>
+<h3 id="Logging-amp-Model-Feedback"><a href="#Logging-amp-Model-Feedback" class="headerlink" title="Logging &amp; Model Feedback"></a>Logging &amp; Model Feedback</h3><p>Now also think about the essence of our system, data. As we could see, we collect only the user feedback data from the UI layer. For a recommendation system, logging runtime intermediate results will be helpful to build ML model when combined with the user feedback data. But it’s not clever to return these results to front-end (User UI) because it will increase latency so the data should be logged at server side and send to somewhere (in our case Hadoop). Also the Server has it’s own duty, so this logging pipeline should be as light-weight as possible. </p>
+<p>We finally choose <a href="http://flume.apache.org/" target="_blank" rel="noopener">Flume</a> as our logging framework. For each server, a Flume client is added and it help we send data to HDFS via memory &amp; sockets. No Disk I/O is needed.</p>
+<p>Once we have both logs from server and user, we are able to join them together and get labeled training data, thus we could run ML training pipelines to generate new model. After necessary validation, we could then upload the model for recommendation server.</p>
+<p>Also, a handy way to check error log is helpful for debugging issues. We deploy a <a href="www.splunk.com/">Splunk</a> instance to collect system log, and provide an real-time search UI to the team member. So engineer could easily check what types of error happened for each machine with a unified way instead of logging in to each machine remotely.</p>
+<h2 id="Lesson-Learned"><a href="#Lesson-Learned" class="headerlink" title="Lesson Learned"></a>Lesson Learned</h2><h3 id="Simplify-the-Metrics"><a href="#Simplify-the-Metrics" class="headerlink" title="Simplify the Metrics"></a>Simplify the Metrics</h3><p>Complicated metrics make itself hard to understand, hard to compare, and error-prone in the computation stage. Also, try to limited the number of metrics to make important decision, we could seldom make a decision when some number is encouraging us to move forward when some saying NO if there is too many metrics for optimization goal.</p>
+<h3 id="Manage-Metrics-Life-Cycles"><a href="#Manage-Metrics-Life-Cycles" class="headerlink" title="Manage Metrics Life Cycles"></a>Manage Metrics Life Cycles</h3><p>When a metrics is no more used, retire it. It takes resource to maintain a metric/pipelines.  It’s much easier to retire a metrics than to deprecate existing code: just stop the pipeline. With version control (or even better continuous integration) support, we could restart it very soon in with a simple click.</p>
+<p>One way to identify which metric should be retired is “Don’t ask”, trust numbers. People are afraid of losing existing property. So when ask “May I retire these metrics”, we get “please don’t” for most cases. In our team, we setup a service to collect the logs to identify how many times the metrics have been requested by user, determine a threshold to filter some candidates, stop the pipeline with or without enquiry. Do it monthly.</p>
+<h3 id="Define-Project-Goal-Clearly"><a href="#Define-Project-Goal-Clearly" class="headerlink" title="Define Project Goal Clearly"></a>Define Project Goal Clearly</h3><ul>
+<li>Who will be our major user? Is it an internal tool? Or is it for business partner or real user? </li>
+<li>How long this projects suppose to support? How long the data suppose to support?<br>The answer greatly impact our future decision of design and resources allocation.</li>
+</ul>
+<h3 id="Understand-and-Clean-data"><a href="#Understand-and-Clean-data" class="headerlink" title="Understand and Clean data"></a>Understand and Clean data</h3><ul>
+<li>Equip data expert so won’t get lost when facing data quality problem</li>
+<li>Manage dimension explosion. We might get more data rather than what we expect because of some special cases. Try to remove/lower the impact given by low quality data. For example, filter out low counted aggregation record.</li>
+</ul>
+<p>Finally, always ask questions. When something is weird, ask. When you think something is interesting, ask. When we ask more, we get much more.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://fwz.github.io/2015/03/26/Evolution-of-Metric-System-Architecture/" data-id="cjluiumxv005zknjg1epv4xsh" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2015/04/12/Linear-Algebra-in-Room-Escape/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Linear Algebra in Room Escape
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2015/02/22/ResistanceAvalon体验/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Resistance:Avalon 体验</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/29/Practical-Kafka-Usage/" class="title">Practical Apache Kafka Usage</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T16:24:02.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Game/Board-Game/">Board Game</a></p>
+                            <p class="item-title"><a href="/2018/02/21/A-2D-Nim-Game/" class="title">A 2D Nim Game</a></p>
+                            <p class="item-date"><time datetime="2018-02-21T13:15:26.000Z" itemprop="datePublished">2018-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a></p>
+                            <p class="item-title"><a href="/2017/06/07/Understanding-Fstab/" class="title">Understanding Fstab</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T14:35:56.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Career/">Career</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Career/Resolution/">Resolution</a></p>
+                            <p class="item-title"><a href="/2017/02/01/2017-Resolution/" class="title">2017 Resolution</a></p>
+                            <p class="item-date"><time datetime="2017-02-01T09:37:27.000Z" itemprop="datePublished">2017-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2016/08/18/The-Data-Migration-Problem/" class="title">The Data Migration Problem</a></p>
+                            <p class="item-date"><time datetime="2016-08-18T09:37:27.000Z" itemprop="datePublished">2016-08-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/">Career</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Growth/">Growth</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Interview/">Interview</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Public-Speaking/">Public Speaking</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Resolution/">Resolution</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/">Engineering</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Big-Data/">Big Data</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dashboard/">Dashboard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Productivity/">Productivity</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Version-Control/">Version Control</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Visualization/">Visualization</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Board-Game/">Board Game</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Room-Escape/">Room Escape</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Publications/">Publications</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/">Read & Learn</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/Book-Review/">Book Review</a><span class="category-list-count">4</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alfred/">Alfred</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automation/">Automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Avalon/">Avalon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Carbon/">Carbon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Career/">Career</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/">D3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expect/">Expect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/">Flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game-Theory/">Game Theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grafana/">Grafana</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphite/">Graphite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/">HBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/">Hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MAC/">MAC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oozie/">Oozie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/">Pig</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plain-English/">Plain English</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Processing/">Processing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-Speaking/">Public Speaking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/">Reading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolution/">Resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Splunk/">Splunk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thinking/">Thinking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/">Visualization</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zhihu/">Zhihu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translate/">translate</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/Alfred/" style="font-size: 10px;">Alfred</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Avalon/" style="font-size: 10px;">Avalon</a> <a href="/tags/Book-Review-Thoughts/" style="font-size: 10px;">Book Review, Thoughts</a> <a href="/tags/Carbon/" style="font-size: 10px;">Carbon</a> <a href="/tags/Career/" style="font-size: 10px;">Career</a> <a href="/tags/D3/" style="font-size: 16.67px;">D3</a> <a href="/tags/Expect/" style="font-size: 10px;">Expect</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Game-Theory/" style="font-size: 10px;">Game Theory</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/Graphite/" style="font-size: 10px;">Graphite</a> <a href="/tags/HBase/" style="font-size: 10px;">HBase</a> <a href="/tags/Hadoop/" style="font-size: 13.33px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MAC/" style="font-size: 10px;">MAC</a> <a href="/tags/Oozie/" style="font-size: 10px;">Oozie</a> <a href="/tags/Pig/" style="font-size: 13.33px;">Pig</a> <a href="/tags/Plain-English/" style="font-size: 10px;">Plain English</a> <a href="/tags/Processing/" style="font-size: 16.67px;">Processing</a> <a href="/tags/Public-Speaking/" style="font-size: 13.33px;">Public Speaking</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Resolution/" style="font-size: 10px;">Resolution</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Splunk/" style="font-size: 10px;">Splunk</a> <a href="/tags/Thinking/" style="font-size: 13.33px;">Thinking</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/tags/Visualization/" style="font-size: 20px;">Visualization</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/data-science/" style="font-size: 10px;">data science</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Wenzhong<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Unit Test 101 | Wenzhong&#39;s Playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="The importance of writing unit tests have been heavily discussed. However, reality is cruel. Many developers do not write UT, and even larger amount of developers write funny tests just to pass the c">
+<meta name="keywords" content="Unit Test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unit Test 101">
+<meta property="og:url" content="http://fwz.github.io/2015/05/09/Unit-Test-101/index.html">
+<meta property="og:site_name" content="Wenzhong&#39;s Playground">
+<meta property="og:description" content="The importance of writing unit tests have been heavily discussed. However, reality is cruel. Many developers do not write UT, and even larger amount of developers write funny tests just to pass the c">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://wenzhong.qiniudn.com/img/blog/testing.png">
+<meta property="og:updated_time" content="2016-09-05T03:39:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unit Test 101">
+<meta name="twitter:description" content="The importance of writing unit tests have been heavily discussed. However, reality is cruel. Many developers do not write UT, and even larger amount of developers write funny tests just to pass the c">
+<meta name="twitter:image" content="http://wenzhong.qiniudn.com/img/blog/testing.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wenzhong&#39;s Playground</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/about-me">About Wenzhong</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/wenzhong_avatar.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/about-me">About Wenzhong</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/wenzhong_avatar.png" />
+            <h2 id="name">Wenzhong</h2>
+            <h3 id="title">Coder &amp; Player</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/fwz">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                34
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                38
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/fwz" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/hectorinsane" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Unit-Test-101" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Unit Test 101
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2015/05/09/Unit-Test-101/">
+            <time datetime="2015-05-09T08:08:20.000Z" itemprop="datePublished">2015-05-09</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Unit-Test/">Unit Test</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://wenzhong.qiniudn.com/img/blog/testing.png" alt=""></p>
+<p>The importance of writing unit tests have been heavily discussed. However, reality is cruel. Many developers do not write UT, and even larger amount of developers write funny tests just to pass the code coverage bar, and some developers with ambition are not quite sure about how to write good unit tests. Most good UT are written by top developers.</p>
+<p>I thought I am that kind of ambitious developer, so I spend two weekends to start to learn it. Most cases listed below are originated from or revised from the book <a href="http://www.amazon.com/Practical-Unit-Testing-TestNG-Mockito/dp/839348930X" target="_blank" rel="noopener">“Practical Unit Testing with Testng and Mockito”</a> by <a href="http://kaczanowscy.pl/tomek/" target="_blank" rel="noopener">Tomek Kaczanowski</a>. A really good book worth reading.</p>
+<hr>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><p>Before we start, let’s visit the concepts of SUT and DOC.</p>
+<a id="more"></a>
+<h3 id="SUT-amp-DOC"><a href="#SUT-amp-DOC" class="headerlink" title="SUT &amp; DOC"></a>SUT &amp; DOC</h3><p>SUT, or <strong>System Under Test</strong>, are understood as <strong>the part of the system being tested</strong>. Depending on the type of test, SUT may be of very different granularity – from a single class to a whole application. </p>
+<p>DOC, or <strong>Depended On Component</strong>, is any entity that is required by an SUT to fulfill its duties.</p>
+<p>For example, recently I am working with <a href="https://spring.io/" target="_blank" rel="noopener">Spring</a>, and I am implementing a Filter class, which take in a <code>ServletRequest</code> object, a <code>ServletResponse</code> object and a <code>FilterChain</code> object. Then when writing unit test, SUT is the <code>Filter</code> class I am working on. DOC are consist of <code>ServletRequest</code> and a <code>ServletResponse</code>, and a <code>FilterChain</code>.</p>
+<h3 id="Test-Type"><a href="#Test-Type" class="headerlink" title="Test Type"></a>Test Type</h3><p>There’s many types of tests(and names) in software development, but the most important tests are: </p>
+<ul>
+<li><strong>unit test</strong> which help to ensure high-quality code</li>
+<li><strong>integration test</strong> which verify that different modules are cooperating effectively</li>
+<li><strong>end to end test</strong> which put the system through its paces in ways that reflect the standpoint of users</li>
+</ul>
+<p>Simple. Let’s start to discuss UT (Unit Test).</p>
+<hr>
+<h2 id="Unit-Test"><a href="#Unit-Test" class="headerlink" title="Unit Test"></a>Unit Test</h2><h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><p>The structure of writing a UT is:</p>
+<ul>
+<li><strong>Arrange</strong> (Setup environment / foundation of the test)</li>
+<li><strong>Act</strong> (run the test)</li>
+<li><strong>Assert</strong> (compare expect result with actual result)</li>
+</ul>
+<h3 id="Frequency-of-running-UT"><a href="#Frequency-of-running-UT" class="headerlink" title="Frequency of running UT"></a>Frequency of running UT</h3><p>UT are supposed to be run repeatedly and frequently. Even someone is not using TDD, after we have implemented any feature, all the UT under this project should be run.</p>
+<h3 id="Bad-smells"><a href="#Bad-smells" class="headerlink" title="Bad smells"></a>Bad smells</h3><p>A test is not a unit test if:</p>
+<ul>
+<li>It talks to the database</li>
+<li>It communicates across the network</li>
+<li>It touches the file system</li>
+<li>It can’t run at the same time as any of your other unit tests</li>
+<li>It might fail even the code is correct, or it might pass even the code is not correct.</li>
+</ul>
+<p>The above points make writing UT not quite straight forward. To make our UT clean, some knowledge such as Mocking is needed. Also we need to master are some skills to utilize the power of our test framework.</p>
+<h3 id="Framework-and-tools"><a href="#Framework-and-tools" class="headerlink" title="Framework and tools"></a>Framework and tools</h3><p>Base on some investigation, I choose TestNG and Mockito and finally spot this book. This is just personal preferences. JUnit provide mostly the similar function with TestNG. Something we desperately need should be available for a mature framework.</p>
+<hr>
+<p>Let’s start coding to demonstrate what we have listed above. Here is a <code>Money</code> class, with two properties, amount and currency.</p>
+<h3 id="Compatability"><a href="#Compatability" class="headerlink" title="Compatability"></a>Compatability</h3><figure class="highlight java"><figcaption><span>Money.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Money</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> amount;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String currency;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Money</span><span class="params">(<span class="keyword">int</span> amount, String currency)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (amount &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"illegal negative amount: ["</span> + amount + <span class="string">"]"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (currency == <span class="keyword">null</span> || currency.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"illegal currency: ["</span> + currency + <span class="string">"], it can not be null or empty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.amount = amount;</span><br><span class="line">        <span class="keyword">this</span>.currency = currency;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCurrency</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> currency;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Money) &#123;</span><br><span class="line">            Money money = (Money) o;</span><br><span class="line">            <span class="keyword">return</span> money.getCurrency().equals(getCurrency()) &amp;&amp; getAmount() == money.getAmount();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now let’s write a very simple test to test whether the constructor work as expect. Here our test are with TestNG and JUnit style (with support in TestNG).</p>
+<figure class="highlight java"><figcaption><span>MoneyTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.testng.annotations.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.testng.Assert.assertEquals;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.testng.AssertJUnit;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneyTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">constructorShouldSetAmountAndCurrency</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Money money = <span class="keyword">new</span> Money(<span class="number">10</span>, <span class="string">"USD"</span>);   <span class="comment">// arrange</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// a TestNG Way</span></span><br><span class="line">        assertEquals(money.getAmount(), <span class="number">10</span>);  <span class="comment">// act and assert</span></span><br><span class="line">        assertEquals(money.getCurrency(), <span class="string">"USD"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// a JUnit Way</span></span><br><span class="line">        AssertJUnit.assertEquals(<span class="string">"USD"</span>, money.getCurrency());</span><br><span class="line">        AssertJUnit.assertEquals(<span class="number">10</span>, money.getAmount());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Parameter-Tests"><a href="#Parameter-Tests" class="headerlink" title="Parameter Tests"></a>Parameter Tests</h2><p>Now the first important trick. For many cases, one set of input/output are not sufficient when writing UT.<br><figure class="highlight java"><figcaption><span>NotSoGoodTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> Test&#123;</span><br><span class="line"></span><br><span class="line">    TestObject to1 = <span class="keyword">new</span> TestObject();</span><br><span class="line">    InputParam input1 = <span class="keyword">new</span> InputParam();</span><br><span class="line">    OutputParam output1 = <span class="keyword">new</span> Output();</span><br><span class="line"></span><br><span class="line">    assertEquals(to1.calc(input1), output1);</span><br><span class="line"></span><br><span class="line">    TestObject to2 = <span class="keyword">new</span> TestObject();</span><br><span class="line">    InputParam input2 = <span class="keyword">new</span> InputParam();</span><br><span class="line">    OutputParam output2 = <span class="keyword">new</span> Output();</span><br><span class="line"></span><br><span class="line">    assertEquals(to2.calc(input2), output2);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>If we don’t want to write code like this, then <em>Parameter Test</em> is our friend. Use a <a href="http://testng.org/javadoc/org/testng/annotations/DataProvider.html" target="_blank" rel="noopener">DataProvider</a> annotation to mark a method as <strong>supplying data</strong> for a test method. It return a 2D array, contains a list of Object[], each Object will be passed as input to the test function.</p>
+<figure class="highlight java"><figcaption><span>MoneyTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.testng.annotations.DataProvider;</span><br><span class="line"><span class="keyword">import</span> org.testng.annotations.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.testng.Assert.assertEquals;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneyTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Parameter tests</span></span><br><span class="line">    <span class="meta">@DataProvider</span></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[][] getMoney()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[][] &#123;</span><br><span class="line">            &#123;<span class="number">10</span>, <span class="string">"USD"</span>&#125;,</span><br><span class="line">            &#123;<span class="number">20</span>, <span class="string">"EUR"</span>&#125;,</span><br><span class="line">            &#123;<span class="number">30</span>, <span class="string">"CNY"</span>&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span>(dataProvider = <span class="string">"getMoney"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">constructorShouldSetAmountAndCurrency</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            <span class="keyword">int</span> amount, String currency)</span> </span>&#123;</span><br><span class="line">        Money money = <span class="keyword">new</span> Money(amount, currency);</span><br><span class="line">        assertEquals(money.getAmount(), amount);</span><br><span class="line">        assertEquals(money.getCurrency(), currency);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>See? A DataProvider notation help you define a list of objects. When linked with the dataprovider function, it will automatically pass the object to the test function as parameters. Previous code generate 3 tests.</p>
+<p>There are some advance usage of Parameter Tests:</p>
+<p>DataProvider could live in another Class so they could be reused (But nee modification to test function, use <code>@Test(dataProvider = &quot;getMoney&quot;, dataProviderClass = DataProviders.class)</code> annotation).</p>
+<p>DataProvider could do lazy initialization, so when you are going to generate many test cases (say 10000+), they don’t need to be initialized before the test, incase any cases fail in the middle and it waste a lot of resources. (need further implement an iterator based on DataProvider class)</p>
+<figure class="highlight plain"><figcaption><span>dataProviderIterator.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@DataProvider(name=&quot;colors&quot;) </span><br><span class="line">public Iterator&lt;Object[]&gt; getColors()&#123;</span><br><span class="line">  Set&lt;Object[]&gt; result=new HashSet&lt;Object[]&gt;();</span><br><span class="line">  result.add(new Object[]&#123;&quot;black&quot;&#125;);</span><br><span class="line">  result.add(new Object[]&#123;&quot;silver&quot;&#125;);</span><br><span class="line">  result.add(new Object[]&#123;&quot;gray&quot;&#125;);</span><br><span class="line">  return result.iterator();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Testing-Exceptions"><a href="#Testing-Exceptions" class="headerlink" title="Testing Exceptions"></a>Testing Exceptions</h2><p>Here is a simple case about how to write UT to test the exception. Some developer might actually include 4 stuffs in a single test (just to improve coverage): </p>
+<ul>
+<li>start the SUT</li>
+<li>pass an invalid value</li>
+<li>catch the exceptions</li>
+<li>handle it </li>
+</ul>
+<p>However, TestNG provide an much cleaner way to test it. <code>expectedExceptions</code> notation are to help.</p>
+<p>(Why bother to handle it? Because if we don’t handle the exception, then this test will fail…) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class MoneyIAETest &#123;</span><br><span class="line">    private final static int VALID_AMOUNT = 5;</span><br><span class="line">    private final static String VALID_CURRENCY = &quot;USD&quot;;</span><br><span class="line"></span><br><span class="line">    @DataProvider</span><br><span class="line">    private static final Object[][] getInvalidAmount()&#123;</span><br><span class="line">        return new Integer[][] &#123; &#123;-12387&#125;, &#123;-5&#125;, &#123;-1&#125; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test(dataProvider = &quot;getInvalidAmount&quot;,</span><br><span class="line">        expectedExceptions = IllegalArgumentException.class)</span><br><span class="line">    public void shouldThrowIAEForInvalidAmount(int invalidAmount) &#123;</span><br><span class="line">        Money money = new Money(invalidAmount, VALID_CURRENCY);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @DataProvider</span><br><span class="line">    private static final Object[][] getInvalidCurrency()&#123;</span><br><span class="line">        return new String[][] &#123; &#123;null&#125;, &#123;&quot;&quot;&#125; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test(dataProvider = &quot;getInvalidCurrency&quot;,</span><br><span class="line">        expectedExceptions = IllegalArgumentException.class)</span><br><span class="line">    public void shouldThrowIAEForInvalidCurrency(String invalidCurrency) &#123;</span><br><span class="line">        Money money = new Money(VALID_AMOUNT, invalidCurrency);</span><br><span class="line">&#125; &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Testing-Concurrent-Codes"><a href="#Testing-Concurrent-Codes" class="headerlink" title="Testing Concurrent Codes"></a>Testing Concurrent Codes</h3><p>Testing concurrency, to some extent is nightmare. If not correctly implemented, the quality of test might become a problem of a UT. Let’s introduce two more attributes which is helpful to test concurrent codes.</p>
+<ul>
+<li>threadPoolSize, which sets the number of threads that are to execute a test method </li>
+<li>invocationCount, which sets the total number of test method executions.</li>
+</ul>
+<p>There is no need for us to implement threads ourselves.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class SystemIdGenerator implements IdGenerator &#123;</span><br><span class="line">    private static Long nextId = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">    // is it thread safe?</span><br><span class="line">    public Long nextId() &#123;</span><br><span class="line">        return nextId++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>SystemIdGeneratorTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemIdGeneratorTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IdGenerator idGen = <span class="keyword">new</span> SystemIdGenerator();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">idsShouldBeUnique</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Long idA = idGen.nextId();</span><br><span class="line">        Long idB = idGen.nextId();</span><br><span class="line">        assertNotEquals(idA, idB, <span class="string">"idA "</span> + idA + <span class="string">" idB "</span> + idB);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JVMUniqueIdGeneratorParallelTest</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> IdGenerator idGen = <span class="keyword">new</span> SystemIdGenerator();</span><br><span class="line">        <span class="keyword">private</span> Set&lt;Long&gt; ids = <span class="keyword">new</span> HashSet&lt;Long&gt;(<span class="number">10000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Test</span>(threadPoolSize = <span class="number">997</span>, invocationCount = <span class="number">10000</span>)</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">idsShouldBeUnique</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            assertTrue(ids.add(idGen.nextId()));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I get 307 fail cases in my laptop for the above code. It failed because the unary operator is not atomic and there might be two thread reading the same value of id.</p>
+<p>In addition to what we have done, you can also use the timeOut and invocationTimeOut attributes of @Test annotation. Their role is to break the test execution and fail the test if it takes too long (e.g. if your code has caused a deadlock or entered some infinite loop). </p>
+<h3 id="Collection-Testing"><a href="#Collection-Testing" class="headerlink" title="Collection Testing"></a>Collection Testing</h3><ul>
+<li>Unitils</li>
+<li>Hamcrest</li>
+<li>FEST Fluent Assertion</li>
+</ul>
+<h4 id="Unitils"><a href="#Unitils" class="headerlink" title="Unitils"></a>Unitils</h4><p>Unitils could help customize the equal definition</p>
+<figure class="highlight java"><figcaption><span>SetEqualityTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.testng.annotations.BeforeMethod;</span><br><span class="line"><span class="keyword">import</span> org.testng.annotations.Test;</span><br><span class="line"><span class="keyword">import</span> org.unitils.reflectionassert.ReflectionComparatorMode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SetEqualityTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">// same setA and setB created as in the previous TestNG example</span></span><br><span class="line"></span><br><span class="line">    Set&lt;Integer&gt; setA;</span><br><span class="line">    Set&lt;Integer&gt; setB;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeMethod</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        setA = <span class="keyword">new</span> LinkedHashSet&lt;Integer&gt;();</span><br><span class="line">        setB = <span class="keyword">new</span> LinkedHashSet&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">        setA.add(<span class="number">1</span>);</span><br><span class="line">        setA.add(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        setB.add(<span class="number">2</span>);</span><br><span class="line">        setB.add(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">twoSetsAreEqualsIfTheyHaveSameContentAndSameOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// assertReflectionEquals(setA, setB);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// This will failed with following error</span></span><br><span class="line">        <span class="comment">// --- Found following differences ---</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        [0]: expected: 1, actual: 2</span></span><br><span class="line"><span class="comment">        [1]: expected: 2, actual: 1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        --- Difference detail tree ---</span></span><br><span class="line"><span class="comment">         expected: [1, 2]</span></span><br><span class="line"><span class="comment">           actual: [2, 1]</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">twoSetsAreEqualsIfTheyHaveSameContentAndAnyOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertReflectionEquals(setA, setB,</span><br><span class="line">                ReflectionComparatorMode.LENIENT_ORDER);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Fest-Fluent-Assertion"><a href="#Fest-Fluent-Assertion" class="headerlink" title="Fest Fluent Assertion"></a>Fest Fluent Assertion</h4><p>FEST Fluent Assertions, which is a part of FEST library, offers many assertions which can simplify collections testing. It also provides a fluent interface, which allows for the chaining together of assertions.</p>
+<figure class="highlight java"><figcaption><span>FestCollectionTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.fest.assertions.api.MapAssert;</span><br><span class="line"><span class="keyword">import</span> org.testng.annotations.BeforeMethod;</span><br><span class="line"><span class="keyword">import</span> org.testng.annotations.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.fest.assertions.api.Assertions.assertThat;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.fest.assertions.api.Assertions.entry;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by wenzhong on 5/9/15.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FestCollectionTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">// same setA and setB created as in the previous TestNG example</span></span><br><span class="line"></span><br><span class="line">    Set&lt;Integer&gt; setA;</span><br><span class="line">    Set&lt;Integer&gt; setB;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeMethod</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        setA = <span class="keyword">new</span> LinkedHashSet&lt;Integer&gt;();</span><br><span class="line">        setB = <span class="keyword">new</span> LinkedHashSet&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">        setA.add(<span class="number">1</span>);</span><br><span class="line">        setA.add(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        setB.add(<span class="number">2</span>);</span><br><span class="line">        setB.add(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">collectionsUtilityMethods</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertThat(setA)</span><br><span class="line">            .isNotEmpty()</span><br><span class="line">            .hasSize(<span class="number">2</span>)</span><br><span class="line">            .doesNotHaveDuplicates();</span><br><span class="line"></span><br><span class="line">        assertThat(setA).containsOnly(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mapUtilityMethods</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;String, Integer&gt;();</span><br><span class="line">        map.put(<span class="string">"a"</span>, <span class="number">2</span>);</span><br><span class="line">        map.put(<span class="string">"b"</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">        assertThat(map)</span><br><span class="line">            .isNotNull()</span><br><span class="line">            .isNotEmpty()</span><br><span class="line">            .contains(entry(<span class="string">"a"</span>, <span class="number">2</span>), entry(<span class="string">"b"</span>, <span class="number">3</span>))</span><br><span class="line">            .doesNotContainKey(<span class="string">"c"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>FEST provides a fluent interface, which allows for the chaining together of assertions. In this case verification of emptiness, size and the absence of duplicates all gets fitted into a single line of code, but the code is still readable.</p>
+<hr>
+<h2 id="Dependency-between-tests"><a href="#Dependency-between-tests" class="headerlink" title="Dependency between tests"></a>Dependency between tests</h2><p>Now think about a test which want to make sure that user account management is correct. It have 2 functions: adding and deleting user accounts. In traditional UT scope, test are independent so the test code might looks like <code>testAddition</code> and <code>testDeletion</code>. Note that the addition actually run for 2 times, which actually break the “DRY” rules.</p>
+<p>However, testNG use another attribute in @Test notation to solve this problem. This time, an explicit dependency is established between the tests. </p>
+<figure class="highlight java"><figcaption><span>TestWithDependencyTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.testng.annotations.Test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by wenzhong on 5/9/15.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestWithDependencyTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAddition</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// adds user X to the system</span></span><br><span class="line">        <span class="comment">// verifies it exists, by issuing SQL query against the database</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeletion</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// adds user Y to the system</span></span><br><span class="line">        <span class="comment">// verify that it exists (so later we know that it was actually removed)</span></span><br><span class="line">        <span class="comment">// removes user Y</span></span><br><span class="line">        <span class="comment">// makes sure it does not exist, by issuing SQL query against the database</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span>(dependsOnMethods = <span class="string">"testAddition"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeletion2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// removes user X</span></span><br><span class="line">        <span class="comment">// makes sure it does not exist, by issuing SQL query against the database</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>However, it’s not always a good thing to have dependency. Think of a test suite with dozens of test, adding a new test will be a nightmare because you might need to find a correct spot to place it into the dependency tree. An alternative is try to initialize the state before each test. And use the dependency in integration test and E2E test.</p>
+<h3 id="Private-Method-Testing"><a href="#Private-Method-Testing" class="headerlink" title="Private Method Testing"></a>Private Method Testing</h3><p>Should we test private method? Of course. But from the best practice we should test it via public method test. However, when facing legacy code, we might face a dilemma: we need test to make sure it work as expect, but writing test need refactor on code, without test we don’t know whether our refactor is correct.</p>
+<p>So when facing legacy code, we compromise on private method testing.</p>
+<h4 id="Built-in-support-in-Java"><a href="#Built-in-support-in-Java" class="headerlink" title="Built-in support in Java"></a>Built-in support in Java</h4><p>Let’s examine some native support from Java.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class ClassWithPrivateMethod &#123;</span><br><span class="line">    private boolean privateMethod(Long param) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import org.testng.annotations.Test;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.InvocationTargetException;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line">import static org.testng.Assert.*;</span><br><span class="line"></span><br><span class="line">public class ClassWithPrivateMethodTest &#123;</span><br><span class="line">    @Test</span><br><span class="line">    public void testingPrivateMethodWithReflection()</span><br><span class="line">            throws NoSuchMethodException, InvocationTargetException,</span><br><span class="line">                   IllegalAccessException &#123;</span><br><span class="line"></span><br><span class="line">        // Note: this is an ugly implementation</span><br><span class="line"></span><br><span class="line">        ClassWithPrivateMethod sut = new ClassWithPrivateMethod();</span><br><span class="line"></span><br><span class="line">        Class[] parameterTypes = new Class[1];</span><br><span class="line">        parameterTypes[0] = java.lang.Long.class;</span><br><span class="line"></span><br><span class="line">        Method m = sut.getClass()</span><br><span class="line">            .getDeclaredMethod(&quot;privateMethod&quot;, parameterTypes);</span><br><span class="line"></span><br><span class="line">        // make it accesible outside of class</span><br><span class="line">        m.setAccessible(true);</span><br><span class="line"></span><br><span class="line">        Object[] parameters = new Object[1];</span><br><span class="line">        parameters[0] = 5569L;</span><br><span class="line"></span><br><span class="line">        // actually invoke</span><br><span class="line">        Boolean result = (Boolean) m.invoke(sut, parameters);</span><br><span class="line">        assertTrue(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="Using-PowerMock"><a href="#Using-PowerMock" class="headerlink" title="Using PowerMock"></a>Using PowerMock</h4><p><a href="https://code.google.com/p/powermock/wiki/MockPrivate" target="_blank" rel="noopener">PowerMock</a> give us a cleaner approach to work on testing private methods. The <a href="http://powermock.googlecode.com/svn/docs/powermock-1.3.7/apidocs/org/powermock/reflect/Whitebox.html" target="_blank" rel="noopener">WhiteBox</a> class provide various utilities for accessing internals of a class. Basically it’s a simplified reflection utility intended for tests.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import org.powermock.reflect.Whitebox;</span><br><span class="line"></span><br><span class="line">public class ClassWithPrivateMethodTest &#123;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testingPrivateMethodWithReflectionByPowerMock()</span><br><span class="line">            throws Exception, IllegalAccessException &#123;</span><br><span class="line">        ClassWithPrivateMethod sut = new ClassWithPrivateMethod();</span><br><span class="line">        </span><br><span class="line">        Boolean result = Whitebox</span><br><span class="line">            .invokeMethod(sut, &quot;privateMethod&quot;, 302483L);</span><br><span class="line">        assertTrue(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Testing-non-dependency-injection-code"><a href="#Testing-non-dependency-injection-code" class="headerlink" title="Testing non dependency injection code"></a>Testing non dependency injection code</h3><p>Think about the following production code (which is less test-able), how can we mock the <code>MyCollaborator</code> class?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class MySut &#123;</span><br><span class="line">    public void myMethod() &#123;</span><br><span class="line">        MyCollaborator collaborator = new MyCollaborator();</span><br><span class="line">        // some behaviour worth testing here which uses collaborator</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PS. the correct way with dependency injection should be<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class MySut &#123;</span><br><span class="line">    public void myMethod(MyCollaborator collaborator) &#123;</span><br><span class="line">        // some behaviour worth testing here which uses collaborator</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h4 id="PowerMock-to-Rescue"><a href="#PowerMock-to-Rescue" class="headerlink" title="PowerMock to Rescue"></a>PowerMock to Rescue</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import org.powermock.api.mockito.PowerMockito;</span><br><span class="line">import org.powermock.core.classloader.annotations.PrepareForTest;</span><br><span class="line">import org.testng.IObjectFactory;</span><br><span class="line">import org.testng.annotations.ObjectFactory;</span><br><span class="line">import org.testng.annotations.Test;</span><br><span class="line"></span><br><span class="line">import static org.powermock.api.mockito.PowerMockito.mock;</span><br><span class="line"></span><br><span class="line">@PrepareForTest(NotDOCInjectedSUT.class)</span><br><span class="line">public class NonInjectedDOCTest&#123;</span><br><span class="line">    @ObjectFactory</span><br><span class="line">    public IObjectFactory getObjectFactory() &#123;</span><br><span class="line">        return new org.powermock.modules.testng.PowerMockObjectFactory();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void testMyMethod() throws Exception &#123;</span><br><span class="line">        NotDOCInjectedSUT sut = new NotDOCInjectedSUT();</span><br><span class="line">        MyCollaborator collaborator = mock(MyCollaborator.class);</span><br><span class="line"></span><br><span class="line">        // the whenNew function applies to</span><br><span class="line">        // normal test using Mockito&apos;s syntax</span><br><span class="line">        // e.g. Mockito.when(collaborator.someMethod()).thenReturn(...)</span><br><span class="line">        PowerMockito.whenNew(MyCollaborator.class)</span><br><span class="line">                .withNoArguments().thenReturn(collaborator);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Here some new attribute and method are introduced:</p>
+<ul>
+<li>the <code>@PrepareForTest</code> annotation informs PowerMock that the <code>NotDOCInjectedSUT</code> class will create a new instance of some other class. In general, this is how PowerMock learns, about which classes it should perform some bytecode manipulation.</li>
+<li>In order to use PowerMock with TestNG, we need to make PowerMock responsible for the creation of all of the test instances. So we use the <code>@ObjectFactory</code> notation to assign PowerMockObjectFactory as the Factory class to generate test instances.</li>
+<li>The test double is created as usual - with the static mock() method of Mockito.</li>
+<li><code>whenNew()</code> is the place magic happens: whenever a new object of the MyCollaborator class gets created, our test double object (collaborator) will be used instead. Two of PowerMock’s methods - whenNew() and withNoArguments() - are used to control the execution of a no-arguments constructor of the MyCollaborator class.</li>
+<li>Note that <code>static</code> methods could also be mocked as the <code>new</code> operator.</li>
+</ul>
+<h4 id="ArgumentCaptor"><a href="#ArgumentCaptor" class="headerlink" title="ArgumentCaptor"></a>ArgumentCaptor</h4><p>But if the <code>collaborator</code> class have some input parameters for its constructor?</p>
+<p>Here we have a not quite good class – <code>PIM</code> (Personal Information Manager?), and related class <code>Calendar</code> and <code>Meeting</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public interface Calendar &#123;</span><br><span class="line">    public void addEvent(Event event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Meeting implements Event &#123;</span><br><span class="line">    private final Date startDate;</span><br><span class="line">    private final Date endDate;</span><br><span class="line">    public Meeting(Date startDate, Date endDate) &#123;</span><br><span class="line">        this.startDate = new Date(startDate.getTime());</span><br><span class="line">        this.endDate = new Date(endDate.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">    public Date getStartDate() &#123;</span><br><span class="line">        return startDate;</span><br><span class="line">    &#125;</span><br><span class="line">    public Date getEndDate() &#123;</span><br><span class="line">        return endDate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class PIM &#123;</span><br><span class="line">    private final static int MILLIS_IN_MINUTE = 60 * 1000;</span><br><span class="line">    private Calendar calendar;</span><br><span class="line">    public PIM(Calendar calendar) &#123;</span><br><span class="line">        this.calendar = calendar;</span><br><span class="line">    &#125;</span><br><span class="line">    public void addMeeting(Date startDate, int durationInMinutes) &#123;</span><br><span class="line">        Date endDate = new Date(startDate.getTime() + MILLIS_IN_MINUTE * durationInMinutes);</span><br><span class="line"></span><br><span class="line">        Meeting meeting = new Meeting(startDate, endDate);</span><br><span class="line">        calendar.addEvent(meeting);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>As we could see that the meeting inside the <code>addMeeting</code> method is hard to mock. However, Mockito provide a <code>ArgumentCaptor</code> function, which we could use to get information from the type <code>Meeting</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import org.mockito.ArgumentCaptor;</span><br><span class="line">import org.testng.annotations.Test;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">import static org.mockito.Mockito.mock;</span><br><span class="line">import static org.mockito.Mockito.verify;</span><br><span class="line">import static org.testng.Assert.*;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by wenzhong on 5/10/15.</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class PIMTest &#123;</span><br><span class="line">    private static final int ONE_HOUR = 60;</span><br><span class="line">    private static final Date START_DATE = new Date();</span><br><span class="line">    private static final int MILLIS_IN_MINUTE = 1000 * 60;</span><br><span class="line">    private static final Date END_DATE</span><br><span class="line">            = new Date(START_DATE.getTime() + ONE_HOUR * MILLIS_IN_MINUTE);</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void shouldAddNewEventToCalendar() &#123;</span><br><span class="line">        Calendar calendar = mock(Calendar.class);</span><br><span class="line">        PIM pim = new PIM(calendar);</span><br><span class="line"></span><br><span class="line">        // An object of the ArgumentCaptor class is created, </span><br><span class="line">        // which will gather information on arguments of the type Meeting.</span><br><span class="line">        ArgumentCaptor&lt;Meeting&gt; argument</span><br><span class="line">                = ArgumentCaptor.forClass(Meeting.class);</span><br><span class="line"></span><br><span class="line">        pim.addMeeting(START_DATE, ONE_HOUR);</span><br><span class="line"></span><br><span class="line">        // The addEvent() method’s having been called is verified,</span><br><span class="line">        // and Mockito is instructed to capture arguments of this method call.</span><br><span class="line">        verify(calendar).addEvent(argument.capture());</span><br><span class="line"></span><br><span class="line">        Meeting meeting = argument.getValue();</span><br><span class="line">        assertEquals(meeting.getStartDate(), START_DATE);</span><br><span class="line">        assertEquals(meeting.getEndDate(), END_DATE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">In the above code, the actual argument to the `addEvent()` method is extracted from the `ArgumentCaptor` object.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Writing-Testable-Code"><a href="#Writing-Testable-Code" class="headerlink" title="Writing Testable Code"></a>Writing Testable Code</h1><p>Code that wasn’t designed to be testable is not testable.</p>
+<h3 id="Rely-on-Dependency-Injection"><a href="#Rely-on-Dependency-Injection" class="headerlink" title="Rely on Dependency Injection"></a>Rely on Dependency Injection</h3><p>So every dependency could be mocked.</p>
+<h3 id="Never-hide-a-TUF-within-TUC"><a href="#Never-hide-a-TUF-within-TUC" class="headerlink" title="Never hide a TUF within TUC"></a>Never hide a TUF within TUC</h3><p><em>TUF</em>, or <em>Test UnFriendly Feature</em>, include following examples:</p>
+<ul>
+<li>Database access</li>
+<li>FileSystem access</li>
+<li>Network access</li>
+<li>Affect of side effect access</li>
+<li>lengthy / inscrutable computations</li>
+<li>static variable usage </li>
+</ul>
+<p><em>TUC</em>, or <em>Test Unfriendly Constructor</em>, include following examples:</p>
+<ul>
+<li>Final methods</li>
+<li>Final classes</li>
+<li>Static methods</li>
+<li>Private methods</li>
+<li>Static InitializationExpressions</li>
+<li>Constructors</li>
+<li>ObjectInitialization Blocks</li>
+<li>New-Expressions</li>
+</ul>
+<h3 id="Handling-existing-issues"><a href="#Handling-existing-issues" class="headerlink" title="Handling existing issues"></a>Handling existing issues</h3><ol>
+<li>subclass and override</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class EventResponder</span><br><span class="line">&#123;</span><br><span class="line">    void showNotification(String notificationMessage) &#123;</span><br><span class="line">        JOptionPane.showMessageDialog(null, notificationMessage);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void respond() &#123;</span><br><span class="line">        ...</span><br><span class="line">        showNotification(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>testRespond</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class TestingEventResponder extends EventResponder</span><br><span class="line">&#123;</span><br><span class="line">    void showNotification(String notificationMessage) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Let’s think about when we could not use this “subclass and override” way to test?</p>
+<ul>
+<li>Final method (we could not override)</li>
+<li>Final class (so we could not inherit)</li>
+<li>Static method (we could not override)</li>
+<li>Private method (we could not override)</li>
+<li>Constructor (they have to run and we have no way to override it)</li>
+</ul>
+<p>Strictly speaking, final classes and final methods are only a problem in testing when they hide a TUF, but it’s nice to have a carefully considered reason for using them rather than just using them by default.</p>
+<h1 id="References-amp-Further-Reading"><a href="#References-amp-Further-Reading" class="headerlink" title="References &amp; Further Reading"></a>References &amp; Further Reading</h1><ul>
+<li><a href="http://martinfowler.com/bliki/FluentInterface.html" target="_blank" rel="noopener">http://martinfowler.com/bliki/FluentInterface.html</a></li>
+<li><a href="http://www.objectmentor.com/resources/articles/TestableJava.pdf" target="_blank" rel="noopener">Testable Java</a> by Michael Feathers</li>
+<li><a href="http://testng.org/doc/book.html" target="_blank" rel="noopener">Next Generation Java Testing: TestNG and Advanced Concepts</a> By Cédric Beust, Hani Suleiman</li>
+<li><a href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052" target="_blank" rel="noopener">Working Effectively With Legacy Code</a> by Michael Feathers</li>
+<li><a href="http://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/" target="_blank" rel="noopener">Refactoring: Improving the Design of Existing Code</a> by Martin Fowler, Kent Beck, John Brant, William Opdyke, Don Roberts</li>
+<li><a href="http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/" target="_blank" rel="noopener">Growing Object-Oriented Software, Guided by Tests</a> by Steve Freeman , Nat Pryce </li>
+<li><a href="http://www.amazon.com/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601/" target="_blank" rel="noopener">Java Concurrency in Practice</a></li>
+<li><a href="http://www.amazon.com/gp/product/0132350882martin2008" target="_blank" rel="noopener">Clean Code: A Handbook of Agile Software Craftsmanship</a> By Robert C. Martin</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://fwz.github.io/2015/05/09/Unit-Test-101/" data-id="cjluiumzl0086knjgmczqoc2z" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2015/11/21/Thoughts-of-Project-Management/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    技术项目管理随想
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2015/04/12/Linear-Algebra-in-Room-Escape/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Linear Algebra in Room Escape</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/29/Practical-Kafka-Usage/" class="title">Practical Apache Kafka Usage</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T16:24:02.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Game/">Game</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Game/Board-Game/">Board Game</a></p>
+                            <p class="item-title"><a href="/2018/02/21/A-2D-Nim-Game/" class="title">A 2D Nim Game</a></p>
+                            <p class="item-date"><time datetime="2018-02-21T13:15:26.000Z" itemprop="datePublished">2018-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a></p>
+                            <p class="item-title"><a href="/2017/06/07/Understanding-Fstab/" class="title">Understanding Fstab</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T14:35:56.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Career/">Career</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Career/Resolution/">Resolution</a></p>
+                            <p class="item-title"><a href="/2017/02/01/2017-Resolution/" class="title">2017 Resolution</a></p>
+                            <p class="item-date"><time datetime="2017-02-01T09:37:27.000Z" itemprop="datePublished">2017-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2016/08/18/The-Data-Migration-Problem/" class="title">The Data Migration Problem</a></p>
+                            <p class="item-date"><time datetime="2016-08-18T09:37:27.000Z" itemprop="datePublished">2016-08-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/">Career</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Growth/">Growth</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Interview/">Interview</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Public-Speaking/">Public Speaking</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Resolution/">Resolution</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/">Engineering</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Big-Data/">Big Data</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dashboard/">Dashboard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Productivity/">Productivity</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Version-Control/">Version Control</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Visualization/">Visualization</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Board-Game/">Board Game</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Room-Escape/">Room Escape</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Publications/">Publications</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/">Read & Learn</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/Book-Review/">Book Review</a><span class="category-list-count">4</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alfred/">Alfred</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automation/">Automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Avalon/">Avalon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Carbon/">Carbon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Career/">Career</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/">D3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expect/">Expect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/">Flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game-Theory/">Game Theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grafana/">Grafana</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphite/">Graphite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/">HBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/">Hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MAC/">MAC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oozie/">Oozie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/">Pig</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plain-English/">Plain English</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Processing/">Processing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-Speaking/">Public Speaking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/">Reading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolution/">Resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Splunk/">Splunk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thinking/">Thinking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/">Visualization</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zhihu/">Zhihu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translate/">translate</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/Alfred/" style="font-size: 10px;">Alfred</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Avalon/" style="font-size: 10px;">Avalon</a> <a href="/tags/Book-Review-Thoughts/" style="font-size: 10px;">Book Review, Thoughts</a> <a href="/tags/Carbon/" style="font-size: 10px;">Carbon</a> <a href="/tags/Career/" style="font-size: 10px;">Career</a> <a href="/tags/D3/" style="font-size: 16.67px;">D3</a> <a href="/tags/Expect/" style="font-size: 10px;">Expect</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Game-Theory/" style="font-size: 10px;">Game Theory</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/Graphite/" style="font-size: 10px;">Graphite</a> <a href="/tags/HBase/" style="font-size: 10px;">HBase</a> <a href="/tags/Hadoop/" style="font-size: 13.33px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MAC/" style="font-size: 10px;">MAC</a> <a href="/tags/Oozie/" style="font-size: 10px;">Oozie</a> <a href="/tags/Pig/" style="font-size: 13.33px;">Pig</a> <a href="/tags/Plain-English/" style="font-size: 10px;">Plain English</a> <a href="/tags/Processing/" style="font-size: 16.67px;">Processing</a> <a href="/tags/Public-Speaking/" style="font-size: 13.33px;">Public Speaking</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Resolution/" style="font-size: 10px;">Resolution</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Splunk/" style="font-size: 10px;">Splunk</a> <a href="/tags/Thinking/" style="font-size: 13.33px;">Thinking</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/tags/Visualization/" style="font-size: 20px;">Visualization</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/data-science/" style="font-size: 10px;">data science</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Wenzhong<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
