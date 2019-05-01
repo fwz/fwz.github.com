@@ -149,7 +149,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                35
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -202,6 +202,142 @@
 
             
             <section id="main">
+    <article id="post-Recommended-workflows-in-Alfred" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2014/07/13/Recommended-workflows-in-Alfred/">Recommended workflows in Alfred</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2014/07/13/Recommended-workflows-in-Alfred/">
+            <time datetime="2014-07-13T15:06:52.000Z" itemprop="datePublished">2014-07-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Productivity/">Productivity</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Alfred/">Alfred</a>, <a class="tag-link" href="/tags/MAC/">MAC</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p><img src="http://wenzhong.qiniudn.com/alfred_workflow.png" alt=""></p>
+<p>Finally I purchase Alfred for workflows.</p>
+<p>A <a href="http://support.alfredapp.com/workflows" target="_blank" rel="noopener">Workflow</a> is a combination of actions, and the killer feature in Alfred powerpack. In Alfred, we can import existing workflows or create our own workflows – to run a series of actions, which will dramatcially improve productivity.</p>
+<h2 id="My-workflow-lists"><a href="#My-workflow-lists" class="headerlink" title="My workflow lists"></a>My workflow lists</h2><p>Before writing this post, I spent about half an hour on <a href="http://www.alfredworkflow.com/" target="_blank" rel="noopener">Alfred Workflows</a> to go through all existing workflows based on  <a href="https://github.com/hzlzh/AlfredWorkflow.com" target="_blank" rel="noopener">the AlfredWorkflow repo</a> by <a href="https://github.com/hzlzh" target="_blank" rel="noopener">hzlzh</a> and select following workflows as enhancement of Alfred.</p>
+<p>There is <a href="https://github.com/zenorocha/alfred-workflows" target="_blank" rel="noopener">another workflow repo</a> by <a href="https://github.com/zenorocha/" target="_blank" rel="noopener">@zenorocha</a>.</p>
+<p>And here’s my lists.</p></p>
+            <p class="article-more-link">
+                <a href="/2014/07/13/Recommended-workflows-in-Alfred/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://fwz.github.io/2014/07/13/Recommended-workflows-in-Alfred/" data-id="cjv5g9n46000u33jgqjldndbl" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Apache-Pig-in-Practice-1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -266,7 +402,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2014/07/04/Apache-Pig-in-Practice-1/" data-id="cjv5ezlgq000s4sjgmkpq05qv" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2014/07/04/Apache-Pig-in-Practice-1/" data-id="cjv5g9n40000p33jgk411gxb6" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -410,7 +546,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2014/06/11/如何准备技术演讲/" data-id="cjv5ezlht002c4sjgzf2rhso7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2014/06/11/如何准备技术演讲/" data-id="cjv5g9n51002c33jgfmhodhf7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -544,7 +680,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2014/05/31/agile_data_science_preface/" data-id="cjv5ezlh7001b4sjggo9ua6b5" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2014/05/31/agile_data_science_preface/" data-id="cjv5g9n4e001533jghwacndvx" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -676,7 +812,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2013/09/20/learn-d3-the-hard-way-(3)---force/" data-id="cjv5ezlk800584sjgb9fpxnn4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2013/09/20/learn-d3-the-hard-way-(3)---force/" data-id="cjv5g9n7e005533jgks52p2no" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -810,7 +946,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2013/09/16/learn-d3-the-hard-way-(2)--yet-another-collision-detection/" data-id="cjv5ezlk9005a4sjg6rebr6v6" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2013/09/16/learn-d3-the-hard-way-(2)--yet-another-collision-detection/" data-id="cjv5g9n7h005a33jg8rby7ya7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -950,7 +1086,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2013/09/15/learn-d3-the-hard-way-(1)----collision-detection/" data-id="cjv5ezlk600554sjg4hxd6opg" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2013/09/15/learn-d3-the-hard-way-(1)----collision-detection/" data-id="cjv5g9n7g005833jgzvz4kwyu" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1087,138 +1223,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2013/09/15/visualization-resources/" data-id="cjv5ezlhf001o4sjgajdikn92" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-【桌游】《大逆转》策略分析" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2013/05/12/【桌游】《大逆转》策略分析/">【桌游】《大逆转》策略分析</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2013/05/12/【桌游】《大逆转》策略分析/">
-            <time datetime="2013-05-12T03:42:20.000Z" itemprop="datePublished">2013-05-12</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Game/">Game</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Game/Board-Game/">Board Game</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h1 id="《大逆转》策略分析"><a href="#《大逆转》策略分析" class="headerlink" title="《大逆转》策略分析"></a>《大逆转》策略分析</h1><p><img src="http://wenzhong.qiniudn.com/img/blog/5effect.jpg" alt=""></p>
-<p>很久前看到过这个桌游的宣传教程，觉得很有意思，于是买回来了和GF玩，玩了大概10局，发现这个游戏的变化真的挺大的。几局下来诞生了三回合速推的一箭穿心打法，从头压制到尾的压迫式打法，另外还有两次激动人心的逆转翻盘节奏。决定写一下心得。</p>
-<h2 id="桌游视频教程"><a href="#桌游视频教程" class="headerlink" title="桌游视频教程"></a>桌游视频教程</h2><p><a href="http://www.tudou.com/programs/view/PEU9V4lq4Zk/" target="_blank" rel="noopener">官方教程</a></p>
-<h2 id="手牌的运营"><a href="#手牌的运营" class="headerlink" title="手牌的运营"></a>手牌的运营</h2><p>由于手牌一直只能保持4张，所以要留和弃哪些牌，要根据游戏的发展来定。先说说功能牌。</p>
-<h4 id="功能牌"><a href="#功能牌" class="headerlink" title="功能牌"></a>功能牌</h4><ul>
-<li>禁手：保留优先级很高的手牌，因为功能牌的作用很大，不可思议的逆转经常是通过一张交换牌开始引起的连锁反应。禁手能够打乱对手的部署。</p>
-            <p class="article-more-link">
-                <a href="/2013/05/12/【桌游】《大逆转》策略分析/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://fwz.github.io/2013/05/12/【桌游】《大逆转》策略分析/" data-id="cjv5ezlhc001j4sjgzkdegjtq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2013/09/15/visualization-resources/" data-id="cjv5g9n4m001j33jgx88hsvj8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1311,6 +1316,15 @@
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/05/02/未来大学：文中的职场生命故事/" class="title">未来大学：文中的职场生命故事</a></p>
+                            <p class="item-date"><time datetime="2019-05-01T16:28:22.000Z" itemprop="datePublished">2019-05-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Message-Queue/">Message Queue</a></p>
                             <p class="item-title"><a href="/2018/07/29/Practical-Kafka-Usage/" class="title">Practical Apache Kafka Usage</a></p>
                             <p class="item-date"><time datetime="2018-07-28T16:24:02.000Z" itemprop="datePublished">2018-07-29</time></p>
@@ -1344,15 +1358,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2016/08/18/The-Data-Migration-Problem/" class="title">The Data Migration Problem</a></p>
-                            <p class="item-date"><time datetime="2016-08-18T09:37:27.000Z" itemprop="datePublished">2016-08-18</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1371,7 +1376,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
