@@ -149,11 +149,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                35
+                36
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                39
+                40
                 <span>tags</span>
             </div>
         </div>
@@ -202,6 +202,143 @@
 
             
             <section id="main">
+    <article id="post-visualization-resources" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2013/09/15/visualization-resources/">Visualization Learning Resources</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2013/09/15/visualization-resources/">
+            <time datetime="2013-09-15T03:24:04.000Z" itemprop="datePublished">2013-09-15</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Visualization/">Visualization</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Visualization/">Visualization</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>Many friends ask me to recommend a list for learning Visualization techniques. As I promised, it’s out now!</p>
+<h1 id="Best-places-to-learn"><a href="#Best-places-to-learn" class="headerlink" title="Best places to learn"></a>Best places to learn</h1><h2 id="d3-js"><a href="#d3-js" class="headerlink" title="d3.js"></a><a href="http://d3js.org/" target="_blank" rel="noopener">d3.js</a></h2><p>“D3” is short for data driven document. With d3, you can manipulate DOM with changing data and user input easily. But if you are not familiar with javascript, the learning curve would be a little steep.<br><img src="/img/d3.png" alt="d3.js"></p>
+<ul>
+<li>Highly recommend <a href="http://bl.ocks.org/mbostock" target="_blank" rel="noopener">examples from Mike, author of d3</a></li>
+<li>And there is a <a href="http://techslides.com/over-1000-d3-js-examples-and-demos/" target="_blank" rel="noopener">crazy blog post</a> collect 1,000 d3 example. </li>
+</ul>
+<h2 id="OpenProcessing-And-Processing-js"><a href="#OpenProcessing-And-Processing-js" class="headerlink" title="OpenProcessing And Processing.js"></a><a href="http://www.openprocessing.org/" target="_blank" rel="noopener">OpenProcessing</a> And <a href="http://processingjs.org/" target="_blank" rel="noopener">Processing.js</a></h2><p>Processing user like to show off their work on OpenProcessing! Because it’s open, you can learn other’s algorithm and find out techniques to create nice effect but using the ordinary function.<br><img src="/img/openprocessing.png" alt="Open Processing"></p></p>
+            <p class="article-more-link">
+                <a href="/2013/09/15/visualization-resources/#more">Read More / 继续阅读</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://fwz.github.io/2013/09/15/visualization-resources/" data-id="cjv6y2gqi001b1ojg83an4aqb" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-【桌游】《大逆转》策略分析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -239,14 +376,14 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h1 id="《大逆转》策略分析"><a href="#《大逆转》策略分析" class="headerlink" title="《大逆转》策略分析"></a>《大逆转》策略分析</h1><p><img src="http://wenzhong.qiniudn.com/img/blog/5effect.jpg" alt=""></p>
+            <p><h1 id="《大逆转》策略分析"><a href="#《大逆转》策略分析" class="headerlink" title="《大逆转》策略分析"></a>《大逆转》策略分析</h1><p><img src="https://wenzhong-1259152588.cos.ap-beijing.myqcloud.com/img/blog/5effect.jpg" alt=""></p>
 <p>很久前看到过这个桌游的宣传教程，觉得很有意思，于是买回来了和GF玩，玩了大概10局，发现这个游戏的变化真的挺大的。几局下来诞生了三回合速推的一箭穿心打法，从头压制到尾的压迫式打法，另外还有两次激动人心的逆转翻盘节奏。决定写一下心得。</p>
 <h2 id="桌游视频教程"><a href="#桌游视频教程" class="headerlink" title="桌游视频教程"></a>桌游视频教程</h2><p><a href="http://www.tudou.com/programs/view/PEU9V4lq4Zk/" target="_blank" rel="noopener">官方教程</a></p>
 <h2 id="手牌的运营"><a href="#手牌的运营" class="headerlink" title="手牌的运营"></a>手牌的运营</h2><p>由于手牌一直只能保持4张，所以要留和弃哪些牌，要根据游戏的发展来定。先说说功能牌。</p>
 <h4 id="功能牌"><a href="#功能牌" class="headerlink" title="功能牌"></a>功能牌</h4><ul>
 <li>禁手：保留优先级很高的手牌，因为功能牌的作用很大，不可思议的逆转经常是通过一张交换牌开始引起的连锁反应。禁手能够打乱对手的部署。</p>
             <p class="article-more-link">
-                <a href="/2013/05/12/【桌游】《大逆转》策略分析/#more">Read More</a>
+                <a href="/2013/05/12/【桌游】《大逆转》策略分析/#more">Read More / 继续阅读</a>
             </p>
         
         </div>
@@ -257,7 +394,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2013/05/12/【桌游】《大逆转》策略分析/" data-id="cjv5g9n4p001o33jg49myhj5y" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2013/05/12/【桌游】《大逆转》策略分析/" data-id="cjv6y2gqk001d1ojgg45g02au" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -395,7 +532,7 @@
 <li>属于多任务的好工作是：要马上做，但可以等的任务。（下载超大文件，备份，编译等等）</li>
 <li>切换任务的时候，花一点时间记录你做到哪里了。这样返回到这个任务比较容易。</p>
             <p class="article-more-link">
-                <a href="/2012/12/31/【读书笔记】时间管理-致系统管理员/#more">Read More</a>
+                <a href="/2012/12/31/【读书笔记】时间管理-致系统管理员/#more">Read More / 继续阅读</a>
             </p>
         
         </div>
@@ -406,7 +543,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2012/12/31/【读书笔记】时间管理-致系统管理员/" data-id="cjv5g9n4w002333jg5v4ejf6r" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2012/12/31/【读书笔记】时间管理-致系统管理员/" data-id="cjv6y2gqo001o1ojgiwpjrv3n" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -528,7 +665,7 @@
 <p>游戏规则：两个或以上相连的同色棋子，点击后可以消去，增加消去棋子个数<strong>平方</strong>的分数。尽可能获取最高分数。 </p>
 <p>各路大神来贴分吧!</p></p>
             <p class="article-more-link">
-                <a href="/2012/11/21/数据可视化分享-processing漫游3/#more">Read More</a>
+                <a href="/2012/11/21/数据可视化分享-processing漫游3/#more">Read More / 继续阅读</a>
             </p>
         
         </div>
@@ -539,7 +676,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2012/11/21/数据可视化分享-processing漫游3/" data-id="cjv5g9n53002f33jgyav0mett" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2012/11/21/数据可视化分享-processing漫游3/" data-id="cjv6y2gqv00251ojgmjamcxaf" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -659,7 +796,7 @@
         
             <p><p>今天看到一个非常性感的作品，按捺不住就做了个Processing的版本。所以抱歉了，这个漫游系列硬生生地把它插入。<br>继续阅读查看效果吧，按S保存截图，R清空屏幕重新绘图。</p></p>
             <p class="article-more-link">
-                <a href="/2012/11/11/数据可视化分享-processing漫游2/#more">Read More</a>
+                <a href="/2012/11/11/数据可视化分享-processing漫游2/#more">Read More / 继续阅读</a>
             </p>
         
         </div>
@@ -670,7 +807,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2012/11/11/数据可视化分享-processing漫游2/" data-id="cjv5g9n7y005f33jgn6hmqv2d" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2012/11/11/数据可视化分享-processing漫游2/" data-id="cjv6y2gt5005m1ojgbeiaoh14" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -792,7 +929,7 @@
 <p>看了看时间，每人40分钟。趁面试开始前翻了一下feedback的Check list，看看有哪些需要考察的。总归是三大项，专业技能，研究领域，个人性格。于是根据这几项分配时间。目前觉得如下分布比较合理。</p>
 <h4 id="开始阶段"><a href="#开始阶段" class="headerlink" title="开始阶段"></a>开始阶段</h4><p>自我介绍。建议让讲点简历上没有的东西，可以看出应变的能力，能传达出一种淡定干练的感觉就非常好了。1分钟<br>简单的交谈，问一些开放性问题。平时会看什么书？上什么网站啊，等等。（我今天在这样问的时候，HR姐姐过来在我耳边说，我们一二面主要考察代码能力。囧。好吧我争取干到以后能随便问开放性问题）1分钟</p></p>
             <p class="article-more-link">
-                <a href="/2012/11/09/处女面试小结/#more">Read More</a>
+                <a href="/2012/11/09/处女面试小结/#more">Read More / 继续阅读</a>
             </p>
         
         </div>
@@ -803,7 +940,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2012/11/09/处女面试小结/" data-id="cjv5g9n50002933jg47pkroqc" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2012/11/09/处女面试小结/" data-id="cjv6y2gqt00221ojgtx5jhpvo" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -923,7 +1060,7 @@
         
             <p><p>这是一份processing写就的树形可视化，大家可以猜猜需要用多少代码。有经验的朋友应该能看出来核心代码不会很多，大概40行。出处在<a href="http://www.openprocessing.org/sketch/8941" title="treecursion" target="_blank" rel="noopener">这里</a>。为了能在用js打开以及流畅的用户体验，我修改了里面代码的一些地方。我觉得这份代码有些奇妙的地方，所以学习了一下。</p>
             <p class="article-more-link">
-                <a href="/2012/06/07/an-interactive-tree-in-Processing/#more">Read More</a>
+                <a href="/2012/06/07/an-interactive-tree-in-Processing/#more">Read More / 继续阅读</a>
             </p>
         
         </div>
@@ -934,7 +1071,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2012/06/07/an-interactive-tree-in-Processing/" data-id="cjv5g9n4f001a33jg42pegvrn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2012/06/07/an-interactive-tree-in-Processing/" data-id="cjv6y2gqd00141ojgxmvoum22" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1074,143 +1211,7 @@
 
 </div>
 
-    <a data-url="http://fwz.github.io/2012/06/07/【读书笔记】《plain-english-at-work》/" data-id="cjv5g9n4r001r33jgffya9icl" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-【读书笔记】《暗时间》" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2012/05/16/【读书笔记】《暗时间》/">暗时间 读后感</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2012/05/16/【读书笔记】《暗时间》/">
-            <time datetime="2012-05-16T15:08:21.000Z" itemprop="datePublished">2012-05-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Read-Learn/">Read & Learn</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Read-Learn/Book-Review/">Book Review</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/Thinking/">Thinking</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>很早就拿到这本书了，冲着刘未鹏买的，翻开一看是刘未鹏的博客集。当时有点失望，因为在学校的时候就把mindhack.cn的文章大致读过一下，分享感想的时候也会拿出一些例子来用。不过我觉得有必要重新精读一次，过程中对如何思考、如何解决问题、如何记忆知识等方面的确有了更深刻的体会。建议每个理性的人、想要提高效率的人都读读这本书，这本书总会在某个地方给你当头一棒。 书是在上班的地铁里读的，就算是用碎片时间向作者致敬吧。</p>
-<p>在我看来，这本书的最大价值在于告诉读者<strong>思考的意义</strong>，以及如何更好更高效地学习。在进入大学之前，多数的思考只为给出和标准答案一致的答案，过程公式化，因此往往出现“做题越多，成绩越好”的现象。然而进入大学之后，自由度变大，思考的质量就会对人造成差异巨大的影响， “你比别人看远一年，就多一年的时间去准备，这个差别是巨大的”。假如察觉自己也经常被问题卡住而毫无头绪，那就应该看看这本书，同时推荐《怎样解题》。</p>
-<p>我自己的体会就是要主动激发思考，改善思考方法提高产出。</p>
-<p>首先是主动性。</p>
-<p>其实哪里都有问题可以思考，即使在玩游戏的时候。例如玩魔兽PVP，在游戏的设计和实现中也是有很多事情可以思考的，模型的设计（不知道有多少人会发现搔首弄姿的大树会保持镜头移开之前的姿势），多人对战时的数据传输，各个client如何处理延迟？Replay文件如何设计？多个单位如何同时寻路？友方如何共享单位和视野？高低地的视野如何实现？各个面板可能运用了哪些设计模式？物品的性价比与平衡性等等。这些问题都是很有趣的。甚至只考虑胜负本身，为什么大家初始处于平等的地位，但随着游戏的深入，有一方会取得优势或者胜势？是技巧还是策略？当取得优势后，对手需要多久才能反应过来以及作出应对？我们又可以如何去应对对手的变化？只要不断考虑这些问题，我们就会比其他不善于/勤于思考的玩家更容易赢得游戏。</p>
-<p>然后是思考方法。<br>昨天买了本《Proof from the book》，其中有一个关于抽屉原理的题目，我苦思冥想，不能解得。题目如下：</p>
-            <p class="article-more-link">
-                <a href="/2012/05/16/【读书笔记】《暗时间》/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://fwz.github.io/2012/05/16/【读书笔记】《暗时间》/" data-id="cjv5g9n4t001v33jgzwea05kl" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://fwz.github.io/2012/06/07/【读书笔记】《plain-english-at-work》/" data-id="cjv6y2gqm001h1ojgkgb5vwgm" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1312,6 +1313,15 @@
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Simulation/">Simulation</a></p>
+                            <p class="item-title"><a href="/2019/02/20/sim-cloud/" class="title">Sim Cloud：蔚来服务云仿真平台设计</a></p>
+                            <p class="item-date"><time datetime="2019-02-20T15:02:54.000Z" itemprop="datePublished">2019-02-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Engineering/">Engineering</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Engineering/Message-Queue/">Message Queue</a></p>
                             <p class="item-title"><a href="/2018/07/29/Practical-Kafka-Usage/" class="title">Practical Apache Kafka Usage</a></p>
                             <p class="item-date"><time datetime="2018-07-28T16:24:02.000Z" itemprop="datePublished">2018-07-29</time></p>
@@ -1336,15 +1346,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Career/">Career</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Career/Resolution/">Resolution</a></p>
-                            <p class="item-title"><a href="/2017/02/01/2017-Resolution/" class="title">2017 Resolution</a></p>
-                            <p class="item-date"><time datetime="2017-02-01T09:37:27.000Z" itemprop="datePublished">2017-02-01</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1354,7 +1355,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/">Career</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Growth/">Growth</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Interview/">Interview</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Public-Speaking/">Public Speaking</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Resolution/">Resolution</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/">Engineering</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Big-Data/">Big Data</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dashboard/">Dashboard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Message-Queue/">Message Queue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Productivity/">Productivity</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Version-Control/">Version Control</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Visualization/">Visualization</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Board-Game/">Board Game</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Room-Escape/">Room Escape</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Publications/">Publications</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/">Read & Learn</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/Book-Review/">Book Review</a><span class="category-list-count">4</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/">Career</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Growth/">Growth</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Interview/">Interview</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Public-Speaking/">Public Speaking</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Career/Resolution/">Resolution</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/">Engineering</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Big-Data/">Big Data</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dashboard/">Dashboard</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Dev-Ops/">Dev Ops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Engineering-Excellence/">Engineering Excellence</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Message-Queue/">Message Queue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Productivity/">Productivity</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Simulation/">Simulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Version-Control/">Version Control</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Engineering/Visualization/">Visualization</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/">Game</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Board-Game/">Board Game</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game/Room-Escape/">Room Escape</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Publications/">Publications</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/">Read & Learn</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Read-Learn/Book-Review/">Book Review</a><span class="category-list-count">4</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -1363,7 +1364,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1372,7 +1373,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alfred/">Alfred</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automation/">Automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Avalon/">Avalon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Carbon/">Carbon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Career/">Career</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/">D3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expect/">Expect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/">Flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game-Theory/">Game Theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grafana/">Grafana</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphite/">Graphite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/">HBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/">Hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MAC/">MAC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oozie/">Oozie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/">Pig</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plain-English/">Plain English</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Processing/">Processing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-Speaking/">Public Speaking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/">Reading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolution/">Resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Splunk/">Splunk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thinking/">Thinking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/">Visualization</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zhihu/">Zhihu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translate/">translate</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alfred/">Alfred</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Automation/">Automation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Avalon/">Avalon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book-Review-Thoughts/">Book Review, Thoughts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Carbon/">Carbon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Career/">Career</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D3/">D3</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expect/">Expect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/">Flume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game-Theory/">Game Theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grafana/">Grafana</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphite/">Graphite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/">HBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/">Hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MAC/">MAC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oozie/">Oozie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/">Pig</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plain-English/">Plain English</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Processing/">Processing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-Speaking/">Public Speaking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/">Reading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolution/">Resolution</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Simulation-NIO/">Simulation, NIO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Splunk/">Splunk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thinking/">Thinking</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Management/">Time Management</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/">Visualization</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zhihu/">Zhihu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-science/">data science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translate/">translate</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1381,7 +1382,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/Alfred/" style="font-size: 10px;">Alfred</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Avalon/" style="font-size: 10px;">Avalon</a> <a href="/tags/Book-Review-Thoughts/" style="font-size: 10px;">Book Review, Thoughts</a> <a href="/tags/Carbon/" style="font-size: 10px;">Carbon</a> <a href="/tags/Career/" style="font-size: 10px;">Career</a> <a href="/tags/D3/" style="font-size: 16.67px;">D3</a> <a href="/tags/Expect/" style="font-size: 10px;">Expect</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Game-Theory/" style="font-size: 10px;">Game Theory</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/Graphite/" style="font-size: 10px;">Graphite</a> <a href="/tags/HBase/" style="font-size: 10px;">HBase</a> <a href="/tags/Hadoop/" style="font-size: 13.33px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MAC/" style="font-size: 10px;">MAC</a> <a href="/tags/Oozie/" style="font-size: 10px;">Oozie</a> <a href="/tags/Pig/" style="font-size: 13.33px;">Pig</a> <a href="/tags/Plain-English/" style="font-size: 10px;">Plain English</a> <a href="/tags/Processing/" style="font-size: 16.67px;">Processing</a> <a href="/tags/Public-Speaking/" style="font-size: 13.33px;">Public Speaking</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Resolution/" style="font-size: 10px;">Resolution</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Splunk/" style="font-size: 10px;">Splunk</a> <a href="/tags/Thinking/" style="font-size: 13.33px;">Thinking</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/tags/Visualization/" style="font-size: 20px;">Visualization</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/data-science/" style="font-size: 10px;">data science</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+            <a href="/tags/2017/" style="font-size: 10px;">2017</a> <a href="/tags/Alfred/" style="font-size: 10px;">Alfred</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Avalon/" style="font-size: 10px;">Avalon</a> <a href="/tags/Book-Review-Thoughts/" style="font-size: 10px;">Book Review, Thoughts</a> <a href="/tags/Carbon/" style="font-size: 10px;">Carbon</a> <a href="/tags/Career/" style="font-size: 10px;">Career</a> <a href="/tags/D3/" style="font-size: 16.67px;">D3</a> <a href="/tags/Expect/" style="font-size: 10px;">Expect</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Game-Theory/" style="font-size: 10px;">Game Theory</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/Graphite/" style="font-size: 10px;">Graphite</a> <a href="/tags/HBase/" style="font-size: 10px;">HBase</a> <a href="/tags/Hadoop/" style="font-size: 13.33px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MAC/" style="font-size: 10px;">MAC</a> <a href="/tags/Oozie/" style="font-size: 10px;">Oozie</a> <a href="/tags/Pig/" style="font-size: 13.33px;">Pig</a> <a href="/tags/Plain-English/" style="font-size: 10px;">Plain English</a> <a href="/tags/Processing/" style="font-size: 16.67px;">Processing</a> <a href="/tags/Public-Speaking/" style="font-size: 13.33px;">Public Speaking</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Resolution/" style="font-size: 10px;">Resolution</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Simulation-NIO/" style="font-size: 10px;">Simulation, NIO</a> <a href="/tags/Splunk/" style="font-size: 10px;">Splunk</a> <a href="/tags/Thinking/" style="font-size: 13.33px;">Thinking</a> <a href="/tags/Time-Management/" style="font-size: 10px;">Time Management</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/tags/Visualization/" style="font-size: 20px;">Visualization</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/data-science/" style="font-size: 10px;">data science</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
         </div>
     </div>
 
