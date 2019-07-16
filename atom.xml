@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fwz.github.io/"/>
-  <updated>2019-06-10T17:10:44.720Z</updated>
+  <updated>2019-07-16T02:13:35.064Z</updated>
   <id>http://fwz.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Product Manager: An Engineer&#39;s Perspective</title>
+    <link href="http://fwz.github.io/2019/06/24/product-manager-an-engineer&#39;s-perspective/"/>
+    <id>http://fwz.github.io/2019/06/24/product-manager-an-engineer&#39;s-perspective/</id>
+    <published>2019-06-24T02:21:20.000Z</published>
+    <updated>2019-07-16T02:13:35.064Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://wenzhong-1259152588.cos.ap-beijing.myqcloud.com/img/blog/product-team.png" alt="Product manager"></p><p>I recently start an online lesson on Geektime and come across <a href="https://time.geekbang.org/column/article/0?cid=80" target="_blank" rel="noopener">an enlightening lecture</a> from a facebook Product Manager Xiaoyin Qu. This article collects some learning &amp; opinion that I thought useful.</p><a id="more"></a><h3 id="General-Responsibility"><a href="#General-Responsibility" class="headerlink" title="General Responsibility"></a>General Responsibility</h3><ul><li>The responsibility of product manager is to lead a team to effectively deliver products which match user’s needs.</li><li>Product manager is the owner of a product. They design the product, the roadmap and strategy of the product.</li><li>Impact people, not manage people. A basic requirement of PM is to make other buying in your idea / project.</li><li>Primary work of A great PM is not composing product requirement document. Planing long term strategy, building up a efficient / motivated team, would take a considerable portion of time.</li><li>Product manager vs project manager: <ul><li>Product manager help product team make decision and deliver a product that gain love and trust from users. </li><li>Project manager help product team to deliver complicated project in limited resources and time. </li><li>Product manager do the right thing, project manager help do things right.</li></ul></li><li>Leadership / Communications / Innovation / Execution are four element towards success.</li></ul><h3 id="User-Requirement"><a href="#User-Requirement" class="headerlink" title="User Requirement"></a>User Requirement</h3><ul><li>Product requirement should always stands for users’ interestes and the correctness of existing pain-point. Segway / Block chain / AI for online celebrity are currently something that shines but not solving real problem.</li><li>Pursuing user Requirement:<ul><li>Target user group.</li><li>Draft some assumption of user pain-points via investigation and data analysis.</li><li>Deepdive data and feedback to verify the existences of pain-points.</li><li>Repeat step 2 &amp; 3.</li></ul></li><li>Don’t try to design something for everyone at first. 100% problems solved for a small but specific user group out weight 50% problem solved for a large group.</li><li>Misunderstanding of targeting:<ul><li>Target only part of target customer group.</li><li>Target the surface requirement, not the core one.</li></ul></li><li>The standard user story: As a (xxx), I want to (do yyy something) to help me achieve (zzz goals).<ul><li>xxx is the target user.</li><li>yyy is the user requirement.</li><li>zzz is the solved user problem.</li></ul></li><li>Use case framework<ul><li>Consider entry / reward / architect reuse / example.</li></ul></li><li>Minimized Valueable Product (MVP)<ul><li>Minimized function means minimized costs.</li><li>Valueable means solution to problems.</li><li>“In this proejct, we can modify requirement to make it compatible with current infra structure”. That’s a wise product manager would say for MVP.</li></ul></li><li>Defining OKR<ul><li>OKR should be concrete enough (including deadline, metrics). <ul><li>“Make user spend more time on App” is not a good metric. </li><li>“DAU reach 1 million at the end of 2019” is.</li></ul></li><li>Identify key metrics. For e-commerce, population of registered user is not critical, population of ordered user is.</li><li>Take <strong>counter metrics</strong> into consideration.</li><li>Rank priorities of multiple OKRs in case we need compromisation.</li></ul></li></ul><h3 id="Basic-requirement"><a href="#Basic-requirement" class="headerlink" title="Basic requirement"></a>Basic requirement</h3><h3 id="Writing-PRD"><a href="#Writing-PRD" class="headerlink" title="Writing PRD"></a>Writing PRD</h3><ul><li>Describe the problem to solve (in different scenario)</li><li>Identify existence of the problem.</li><li>Design success and counter metrics.</li><li>Explain detail function, including:<ul><li>explaining the entry of the function.</li><li>a flow chart of function.</li><li>explaining any current product framework / architecture reuseable?</li><li>if cross team cooperation needed, deal with it in advance and make notes on PRD.</li><li>explain fallback strategy (when things goes out of expectation).</li></ul></li></ul><h3 id="Requirement-Discussion"><a href="#Requirement-Discussion" class="headerlink" title="Requirement Discussion"></a>Requirement Discussion</h3><ul><li>Make a reasonable deadline for decision making. People are tended to be deadline driven.</li><li>Use kickoff meeting to form sub-groups. sub-groups leader take assignments and make it done.</li><li>Plan meeting with an agenda and time arrangment for each item. Stick to it on the meeting.</li><li><strong>Argument</strong> could be settled by aligning both sides’ decision making criteria.</li><li>Describe the purpose of meeting at the agenda seal a effective meeting.</li><li>Discuss early and share background so there will be more chances to find an cost effective way to finish a task.</li><li>Let engineer design the product detail is effective. (IMO, it’s true but decision should be broadcasted to PM in case there is missing context.)</li><li>Take responsibility when some effort is wasted.</li></ul><h3 id="Time-management"><a href="#Time-management" class="headerlink" title="Time management"></a>Time management</h3><ul><li>Record 3 most important tasks today before working.</li></ul><h3 id="Growth"><a href="#Growth" class="headerlink" title="Growth"></a>Growth</h3><ul><li><strong>Core Formula: Growth = Acquisition + Retention + Resurrection</strong>. Refer this formula to setup goal and plan strategy. </li><li>Make sure everyone in team know the growth goal.</li><li>Track every relevant A/B test (hypothesis / engineering progress / traffic portion / test duration / owner)</li><li>Non-positive tests are also treasure for the team.</li><li>Use dashboard / showcase to display core metrics. Monitor metrics.</li><li>PM should train the team to be more conscious on growth.</li><li>Workflow of growth:<ol><li>defining the metric to improve.</li><li>understanding current product.</li><li>digging out relavant odds / chances and make hypothesis.</li><li>brainstorming solution to the hypothesis.</li><li>executing test, find the best solution and release.</li></ol></li><li>Rules of “Understand, Identify &amp; Execute”<ul><li>Don’t roughly skip “Understand” even we have identified something. Simply identifing solution and starting execution, instead of understanding the whole picture of the product, might be risking of missing the best idea although the current one still bring positive change to the product.</li></ul></li><li>Make long-term mission statement. Make sure the product stick to it, no matter how aggressive the growth goals are.</li><li>Anti metrics to mission statement are core metrics during growth. Quantitize anti-metrics, missing anti-metrics is also failure. </li></ul><h3 id="Execution"><a href="#Execution" class="headerlink" title="Execution"></a>Execution</h3><ul><li>Build up a <strong>result driven</strong> team, everyone has a <strong>clear responsibility boundary</strong>.<ul><li>All people know everyone’s responsibility.</li><li>Working output could be evaluated.</li><li>If one encounter problems, he should ask for help, and the team should help him solving it. If problems keep blocking progress, report to product manager in-time.</li><li>Stealing credits are prohibited.</li></ul></li><li><strong>Control duration of decision making process</strong><ul><li>Not every decision has to be made by everyone</li><li>Every decision has its own “argue time range”. Length of the range are decided by the importances of the decision. Most important one worth more discussion. For normal decision, conclusion should be made quickly for the sake of execution. <ul><li>To settle argument, such wording might be useful: this decision is not quite important and we don’t have to spend so much time on it. There are still room of later adjustment according to user feedback”</li></ul></li><li>Make sure everyone in team know the priority and work according to priority.</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://wenzhong-1259152588.cos.ap-beijing.myqcloud.com/img/blog/product-team.png&quot; alt=&quot;Product manager&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I recently start an online lesson on Geektime and come across &lt;a href=&quot;https://time.geekbang.org/column/article/0?cid=80&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;an enlightening lecture&lt;/a&gt; from a facebook Product Manager Xiaoyin Qu. This article collects some learning &amp;amp; opinion that I thought useful.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Read &amp; Learn" scheme="http://fwz.github.io/categories/Read-Learn/"/>
+    
+      <category term="Book Review" scheme="http://fwz.github.io/categories/Read-Learn/Book-Review/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>未来大学：文中的职场生命故事</title>
@@ -612,45 +635,6 @@
       <category term="Pig" scheme="http://fwz.github.io/tags/Pig/"/>
     
       <category term="Hadoop" scheme="http://fwz.github.io/tags/Hadoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何准备技术演讲</title>
-    <link href="http://fwz.github.io/2014/06/11/%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87%E6%8A%80%E6%9C%AF%E6%BC%94%E8%AE%B2/"/>
-    <id>http://fwz.github.io/2014/06/11/如何准备技术演讲/</id>
-    <published>2014-06-11T15:58:03.000Z</published>
-    <updated>2019-05-02T17:40:28.049Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://wenzhong-1259152588.cos.ap-beijing.myqcloud.com/img/blog/ted.jpg" alt=""></p><p>难得在知乎上认真回答问题，也摘到这里来。原问题：<a href="http://www.zhihu.com/question/21799796/answer/19379700" target="_blank" rel="noopener">如何做一个优秀的技术分享？</a></p><p>做一次成功的presentation性价比是很高的，请把握好每一次。</p><h2 id="内容的准备"><a href="#内容的准备" class="headerlink" title="内容的准备"></a>内容的准备</h2><ul><li><strong>多讲目标听众不知道／感兴趣的内容。</strong>听众投入最宝贵的时间来听分享，Speaker的一个起码责任是保证听众在这段时间的收获。</li><li><strong>设计一个有创意的开头。提升自信良方。</strong>好的开头会影响观众对speaker的第一印象，也使听众更容易包容后来可能出现的失误。</li><li><strong>设计一个强而有力的结尾。</strong>想一句推而广之有哲理的话，再来强而有力的”Thank you!”，告诉大家是时候鼓掌了。结尾推而广之的例子可见 <a href="http://www.zhihu.com/question/21262930" target="_blank" rel="noopener">一个关于数学归纳法的悖论问题：到底是第N天有N个红眼睛自杀，还是什么都不会发生？</a> 的最高票答案补充，我恨不得点3个赞。</li><li><strong>避免常见错误或者明显缺陷。</strong>可以参考<a href="http://www.slideshare.net/heypig/caffeinenicotine-ppt" target="_blank" rel="noopener">http://www.slideshare.net/heypig/caffeinenicotine-ppt</a> 蔡老师就如何组织内容说得很好。</li><li><strong>平日的大量积累。</strong>没有切身体验的死记硬背和摸爬滚打后的娓娓道来，听众的收获和感觉是大不一样的。在接受一次分享邀请之前，最好先掂量一下自己对这个话题的理解。</li></ul><h2 id="幻灯片-Slides"><a href="#幻灯片-Slides" class="headerlink" title="幻灯片(Slides):"></a>幻灯片(Slides):</h2><ul><li><strong>有时间的话尝试用新软件去设计幻灯片。</strong>我用过的有<a href="http://bartaz.github.io/impress.js/" target="_blank" rel="noopener">impress.js</a>, <a href="http://prezi.com/" target="_blank" rel="noopener">Prezi</a>, <a href="http://ramnathv.github.io/slidify/" target="_blank" rel="noopener">Slidify</a>。Prezi上手更容易一些，但是收费。Impress.js用HTML5实现了Prezi的大部分功能。Slidify比较适合数据分析师使用。花点时间稍加运用，绝对会让人耳目一新。</li><li><strong>所有元素风格一致。</strong>包括但不限于字体，色调，标点，对齐方式，动画出现退出的方式。</li><li><strong>用无衬线字体。</strong>中文字体里面比较保险的是微软雅黑或者苹果丽黑。宋体只会让人质疑你的品味。英文字体没什么研究，可以根据自己审美选择了，当然也有保险的Helvetica，或者Impact。<a id="more"></a></li><li><strong>一图胜千文。</strong>比较推荐利用信息图/数据可视化作品。虽然信息图已经烂大街了，但还是人民群众喜闻乐见的元素。平时没有刻意搜罗的话，可以直接Google搜”Visualization (topic)” 或者”Infographics (topic)”，一般都能从图研所啊flowingdata啊visual-athestics之类的网站翻出来一些。ps－最好用英文搜。</li></ul><h2 id="排练"><a href="#排练" class="headerlink" title="排练"></a>排练</h2><ul><li><strong>排练到吐。</strong>保证内容烂熟于心，各种笑话和梗会被适时、自然放出。</li><li><strong>录制排练视频。</strong>镜头下所有的弱点都会被暴露，这个阶段超级打击自信。要改进的时候多看看TED talk。</li><li><strong>请有经验的朋友对幻灯片内容和表达给意见。</strong>他们能反映听众的真实感受。</li><li><strong>善用软件的排练功能。</strong>PPT的Present view能看到下一屏的内容，可以让你更好地连接上下文。</li><li><strong>计时。</strong>保证对时间的分配有清晰的掌握。避免前面的slides讲得细致入微，后面压根讲不完。</li></ul><h2 id="表达"><a href="#表达" class="headerlink" title="表达"></a>表达</h2><ul><li><strong>永远站着做演讲。</strong>听众大多是坐着的，站起来有利于建立自信，营造一种对场面的无形控制力。</li><li><strong>不要跳页。</strong>跳页会让人感到准备不足，或者你并不熟悉此页上的内容。即使时间有限，也要用一句话概括。</li><li><strong>事先说明你是否乐意被观众打断。</strong>被一根筋的观众缠上是很麻烦的事情，我见过有speaker直接讲着讲着就开吵的。</li><li><strong>适当自嘲。</strong>有点幽默感大家都会很喜欢的。</li></ul><h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><ul><li><strong>控制时间。</strong>假如不只有你一个人演讲的话，时间太长可能会影响其它主讲的时间。</li><li><strong>事先检查好设备。</strong>有没有激光笔，用MAC的话主办方有没有配转接头，甚至预估去会场的时间等等。这样做的目的是保证实际演讲环境与排练环境一致，保证排练的意义。</li><li><strong>适当与观众交流。</strong>问问题送礼物是激起活跃度的好花招。（建议给些高雅的礼物，例如书）</li><li><strong>避免说一句话的时候头重脚轻。</strong>据我观察很多人一句话说到后面就越说越小声，是没有自信的表现。</li><li><strong>注意仪态。</strong>例如过程中尽量避免经常搓手，托眼镜等小动作。有一次我讲完感觉相当好，最后一看回放视频，瓦擦驼背啊……沮丧了一天。</li><li><strong>多参加一些演讲活动。</strong>Toastmaster是个不错的选择，还能交到很多朋友。</li></ul><p>欢迎邀请我去演讲或听演讲。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://wenzhong-1259152588.cos.ap-beijing.myqcloud.com/img/blog/ted.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;难得在知乎上认真回答问题，也摘到这里来。原问题：&lt;a href=&quot;http://www.zhihu.com/question/21799796/answer/19379700&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;如何做一个优秀的技术分享？&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;做一次成功的presentation性价比是很高的，请把握好每一次。&lt;/p&gt;
-&lt;h2 id=&quot;内容的准备&quot;&gt;&lt;a href=&quot;#内容的准备&quot; class=&quot;headerlink&quot; title=&quot;内容的准备&quot;&gt;&lt;/a&gt;内容的准备&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多讲目标听众不知道／感兴趣的内容。&lt;/strong&gt;听众投入最宝贵的时间来听分享，Speaker的一个起码责任是保证听众在这段时间的收获。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设计一个有创意的开头。提升自信良方。&lt;/strong&gt;好的开头会影响观众对speaker的第一印象，也使听众更容易包容后来可能出现的失误。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设计一个强而有力的结尾。&lt;/strong&gt;想一句推而广之有哲理的话，再来强而有力的”Thank you!”，告诉大家是时候鼓掌了。结尾推而广之的例子可见 &lt;a href=&quot;http://www.zhihu.com/question/21262930&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;一个关于数学归纳法的悖论问题：到底是第N天有N个红眼睛自杀，还是什么都不会发生？&lt;/a&gt; 的最高票答案补充，我恨不得点3个赞。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免常见错误或者明显缺陷。&lt;/strong&gt;可以参考&lt;a href=&quot;http://www.slideshare.net/heypig/caffeinenicotine-ppt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.slideshare.net/heypig/caffeinenicotine-ppt&lt;/a&gt; 蔡老师就如何组织内容说得很好。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;平日的大量积累。&lt;/strong&gt;没有切身体验的死记硬背和摸爬滚打后的娓娓道来，听众的收获和感觉是大不一样的。在接受一次分享邀请之前，最好先掂量一下自己对这个话题的理解。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;幻灯片-Slides&quot;&gt;&lt;a href=&quot;#幻灯片-Slides&quot; class=&quot;headerlink&quot; title=&quot;幻灯片(Slides):&quot;&gt;&lt;/a&gt;幻灯片(Slides):&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;有时间的话尝试用新软件去设计幻灯片。&lt;/strong&gt;我用过的有&lt;a href=&quot;http://bartaz.github.io/impress.js/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;impress.js&lt;/a&gt;, &lt;a href=&quot;http://prezi.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Prezi&lt;/a&gt;, &lt;a href=&quot;http://ramnathv.github.io/slidify/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Slidify&lt;/a&gt;。Prezi上手更容易一些，但是收费。Impress.js用HTML5实现了Prezi的大部分功能。Slidify比较适合数据分析师使用。花点时间稍加运用，绝对会让人耳目一新。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;所有元素风格一致。&lt;/strong&gt;包括但不限于字体，色调，标点，对齐方式，动画出现退出的方式。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;用无衬线字体。&lt;/strong&gt;中文字体里面比较保险的是微软雅黑或者苹果丽黑。宋体只会让人质疑你的品味。英文字体没什么研究，可以根据自己审美选择了，当然也有保险的Helvetica，或者Impact。
-    
-    </summary>
-    
-      <category term="Career" scheme="http://fwz.github.io/categories/Career/"/>
-    
-      <category term="Public Speaking" scheme="http://fwz.github.io/categories/Career/Public-Speaking/"/>
-    
-    
-      <category term="Public Speaking" scheme="http://fwz.github.io/tags/Public-Speaking/"/>
-    
-      <category term="Zhihu" scheme="http://fwz.github.io/tags/Zhihu/"/>
     
   </entry>
   
